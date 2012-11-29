@@ -17,9 +17,9 @@
 {% endblock %}
 
 {% block extra-js %}
-    <script src='{{ STATIC_URL }}js/jquery.tablesorter.js' type='text/javascript'></script>
-    <script src='{{ STATIC_URL }}js/jquery.tablesorter.pager.js' type='text/javascript'></script>
-    <script src='{{ STATIC_URL }}js/jquery.tablesorter.multipagefilter.js' type='text/javascript'></script>
+    <script src='http://projects.scpr.org/static/static-files/scripts/jquery.tablesorter.js' type='text/javascript'></script>
+    <script src='http://projects.scpr.org/static/static-files/scripts/jquery.tablesorter.pager.js' type='text/javascript'></script>
+    <script src='http://projects.scpr.org/static/static-files/scripts/jquery.tablesorter.multipagefilter.js' type='text/javascript'></script>
     <script type="text/javascript">
         /* For picking out bits from the query string */
         var getParameterByName = function(name) {
@@ -37,127 +37,126 @@
 {% endblock %}
 
 {% block headline %}
-    <div id="share">
-        <ul>
-            <li>
-                <a data-text="" href="http://twitter.com/share" class="twitter-share-button"
-                    data-count="horizontal">Tweet</a>
-                <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-            </li>
-            <li>
-                <g:plusone size="medium"></g:plusone>
-            </li>
-            <li>
-                <div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=161694630579757&amp;xfbml=1"></script><fb:like href="" send="false" layout="button_count" width="90" show_faces="false" font=""></fb:like>
-            </li>
-        </ul>
-    </div>
     <h4 id="kicker">{% if object.kicker %}{{ object.kicker|safe }}{% else %}Spreadsheet{% endif %}</h4>
     <h1 id="title">{{ object.title|safe }}</h1>
 {% endblock %}
 
 {% block content %}
-    <div id="table_fu">
-    <div class="clear"></div>
-    
-    {% if object.description %}
-        <div id="description">{{ object.description|safe }}</div>
-    {% endif %}
-    
-    <div class="clear"></div>
-    
-    {% if object.legend %}
-        <div id="legend">{{ object.legend|safe }}</div>
-    {% endif %}
-    
-    <div id="ribbon">
-    
-        <div id="download">
-            Published: <div id="pubdate">{{ object.publication_date|date:"N j, Y" }}</div>&nbsp;&nbsp;
-             {% if object.show_download_links %}
-            Download:
-            <a href="{{ object.get_csv_url }}">CSV</a> |
-            <a href="{{ object.get_xls_url }}">XLS</a> |
-            <a target="_blank" href="{{ object.get_json_url }}">JSON</a>
-            {% endif %}
-        </div>
-        
-        <div id="controls">
-            <div id="filter" {% if not object.show_search_field %}style="display:none !important;"{% endif %}>Search: <input type="text"></div>
-            <div id="pager" class="pager">
-              <form {% ifequal table.total_pages 1 %}style="display:none !important;"{% endifequal %}>
-                <img src="{{ STATIC_URL }}img/first.png" class="first">
-                <img src="{{ STATIC_URL }}img/prev.png" class="prev">
-                <span class="pagedisplay"/>1/{{ table.total_pages }}</span>
-                <img src="{{ STATIC_URL }}img/next.png" class="next">
-                <img src="{{ STATIC_URL }}img/last.png" class="last">
-                <select class="pagesize">
-                    {% for page_size in table.page_size_list %}
-                    <option {% if forloop.first %}selected="selected"{% endif %} value="{{ page_size }}">{{ page_size }}</option>
-                    {% endfor %}
-                </select> per page
-              </form>
-            </div>
-        </div>
-    
-    </div>
-    <div class="clear"></div>
-    <table id="data" class="tabular">
-        <thead>
-            <tr>
-            {% for header in table.headers %}
-              <th style="cursor: pointer; {% if header.style %}{% if header.sortable %}cursor: pointer;{% else %}cursor:default; background:none;{% endif %} {{ header.style }}{% endif %}">
-                {{ header }}
-              </th>
-            {% endfor %}
-            </tr>
-        </thead>
-        <tbody>
-        {% for row in table.rows %}
-          <tr>
-            {% for column in row.data %}
-                <td style="{{ column.style }}">{{ column|safe }}</td>
-            {% endfor %}
-          </tr>
-        {% endfor %}
-        </tbody>
-    <tfoot></tfoot>
-    </table>
-    {% if object.footer %}<div id="footer">{{ object.footer|safe }}</div>{% endif %}
-    {% if object.sources %}<div id="sources">Sources: {{ object.sources|safe }}</div>{% endif %}
-    {% if object.credits %}<div id="credits">Credits: {{ object.credits|safe }}</div>{% endif %}
-    
-    <script type='text/javascript'>
-        var sortOrder = {{ table.sorted_by }};
-        var perPage = {{ table.per_page }};
-        $(document).ready(function(){
-            var fu = $('#table_fu');
-            var table = window.table = $('#data', fu)
-              .tablesorter({
-                widgets: ['columnHighlight'],
-                sortList: sortOrder{% if table.sorter_config %},
-                headers: {% for key, value in table.sorter_config.items %}{ 
-                            {{ key }}: {
-                                sorter: {% if value %}'{{ value }}'{% else %}false{% endif %} 
-                            }{% if not forloop.last %},{% endif %}
-                        }{% endfor %}{% endif %}
-               })
-              .tablesorterPager({ container: $("#pager", fu), size: perPage, positionFixed: false })
-              .tablesorterMultiPageFilter({ filterSelector: $("#filter input", fu) });
-            var urlSortColumn = getParameterByName("sortColumn");
-            var urlSortOrder = getParameterByName("sortOrder");
-            if (urlSortColumn && urlSortOrder) {
-                urlSortColumn  = parseInt(urlSortColumn);
-                urlSortOrder  = parseInt(urlSortOrder);
-                newSort = [[urlSortColumn, urlSortOrder]];
-                $("table").trigger("sorton", [newSort]); 
-            };
-        });
-    </script>
+<div id="table_fu">
 
-    </div>
+<!-- orginal code left in -->
+<div class="clear"></div>
+
+{% if object.description %}
+    <div id="description">{{ object.description|safe }}</div>
+{% endif %}
+
+<div class="clear"></div>
+
+{% if object.legend %}
+    <div id="legend">{{ object.legend|safe }}</div>
+{% endif %}
+
+
+<!-- begin display ribbon -->
+<div id="ribbon">
+
+<div id="download">
+<strong>Published: </strong>
+<div id="pubdate">{{ object.publication_date|date:"N j, Y" }}</div>&nbsp;&nbsp;
+
+{% if object.show_download_links %}
+<strong>Download the data: </strong>
+<a href="{{ object.get_csv_url }}">CSV</a> |
+<a href="{{ object.get_xls_url }}">XLS</a> |
+<a target="_blank" href="{{ object.get_json_url }}">JSON</a>
+{% endif %}
+
+</div>
+
+<div id="controls">
+<div id="filter" {% if not object.show_search_field %}style="display:none !important;"{% endif %}>Search: <input type="text"></div>
+<div id="pager" class="pager">
+<form class="form-inline" {% ifequal table.total_pages 1 %}style="display:none !important;"{% endifequal %}>
+<img src="http://projects.scpr.org/static/static-files/images/tablestacker-tables/first.png" class="first">
+<img src="http://projects.scpr.org/static/static-files/images/tablestacker-tables/prev.png" class="prev">
+<span class="pagedisplay"/>1/{{ table.total_pages }}</span>
+<img src="http://projects.scpr.org/static/static-files/images/tablestacker-tables/next.png" class="next">
+<img src="http://projects.scpr.org/static/static-files/images/tablestacker-tables/last.png" class="last">
+<select class="pagesize">
+{% for page_size in table.page_size_list %}
+<option {% if forloop.first %}selected="selected"{% endif %} value="{{ page_size }}">{{ page_size }}</option>
+{% endfor %}
+</select> per page
+</form>
+</div>
+</div>
+
+</div>
+<!-- end display ribbon -->
+
+<div class="clear"></div>
+
+<table id="data" class="tabular table responsive">
+<thead>
+<tr>
+{% for header in table.headers %}
+<th style="cursor: pointer; {% if header.style %}{% if header.sortable %}cursor: pointer;{% else %}cursor:default; background:none;{% endif %} {{ header.style }}{% endif %}">
+{{ header }}
+</th>
+{% endfor %}
+</tr>
+</thead>
+<tbody>
+{% for row in table.rows %}
+<tr>
+{% for column in row.data %}
+<td style="{{ column.style }}">{{ column|safe }}</td>
+{% endfor %}
+</tr>
+{% endfor %}
+</tbody>
+<tfoot></tfoot>
+</table>
+
+{% if object.footer %}<div id="footer">{{ object.footer|safe }}</div>{% endif %}
+{% if object.sources %}<div id="sources"><strong>Sources: </strong>{{ object.sources|safe }}</div>{% endif %}
+{% if object.credits %}<div id="credits"><strong>Credits: </strong>{{ object.credits|safe }}</div>{% endif %}
+<div class="open-source">Foundation courtesy of <a href="https://github.com/datadesk/latimes-table-stacker" target="_blank">Table Stacker</a>, a <a href="https://www.djangoproject.com/" target="_blank">Django</a> application that publishes spreadsheets.</div>
+<!-- original code -->
+
+
+<!-- added script -->
+<script type="text/javascript" src="http://projects.scpr.org/static/static-files/scripts/responsive-tables.js"></script>
+<!-- added script -->
+
+<script type='text/javascript'>
+    var sortOrder = {{ table.sorted_by }};
+    var perPage = {{ table.per_page }};
+    $(document).ready(function(){
+        var fu = $('#table_fu');
+        var table = window.table = $('#data', fu)
+          .tablesorter({
+            widgets: ['columnHighlight'],
+            sortList: sortOrder{% if table.sorter_config %},
+            headers: {% for key, value in table.sorter_config.items %}{
+                        {{ key }}: {
+                            sorter: {% if value %}'{{ value }}'{% else %}false{% endif %}
+                        }{% if not forloop.last %},{% endif %}
+                    }{% endfor %}{% endif %}
+           })
+          .tablesorterPager({ container: $("#pager", fu), size: perPage, positionFixed: false })
+          .tablesorterMultiPageFilter({ filterSelector: $("#filter input", fu) });
+        var urlSortColumn = getParameterByName("sortColumn");
+        var urlSortOrder = getParameterByName("sortOrder");
+        if (urlSortColumn && urlSortOrder) {
+            urlSortColumn  = parseInt(urlSortColumn);
+            urlSortOrder  = parseInt(urlSortOrder);
+            newSort = [[urlSortColumn, urlSortOrder]];
+            $("table").trigger("sorton", [newSort]);
+        };
+    });
+</script>
+
+</div>
 {% endblock %}
-
-
-
-

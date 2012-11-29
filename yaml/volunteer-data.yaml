@@ -1,0 +1,62 @@
+table:
+  title: Community Causes
+  file: volunteer-data.csv
+  slug: community-causes
+  kicker: Season of Giving
+  footer: "<p></p>"
+  byline: Chris Keller
+  description: '<p>Find a place near you to volunteer this holiday season.</p>'
+  column_options:
+    columns:
+      - Organization
+      - Mission
+      - Location
+      - Phone
+      - Email
+      - Clients serviced
+      - Website
+      - Religious or cultural affiliation
+      - Need
+    style:
+      Organization: 'text-align:left;'
+      Mission: 'text-align:left;'
+      Location: 'text-align:left;'
+      Phone: 'text-align:left; width: 15px;'
+      Email: 'text-align:left; width: 15px;'
+      Clients serviced: 'text-align:left; width: 15px;'
+      Website: 'text-align:left; width: 15px;'
+      Religious or cultural affiliation: 'text-align:left; width: 15px;'
+      Need: 'text-align:left;'
+    sorted_by:
+      - Organization: ascending
+    formatting:
+      Organization:
+        method: title
+      Mission:
+        method: title
+      Location:
+        method: title
+      Phone:
+        method: title
+      Email:
+        method: email_address
+        arguments:
+            - Email
+      Clients serviced:
+        method: title
+      Website:
+        method: link
+        arguments:
+            - Website
+      Religious or cultural affiliation:
+        method: title
+      Need:
+        method: title
+    per_page: 5
+  is_published: true
+  publication_date: 2012-11-27
+  publication_time: "6:00:00"
+  sources: Testing where the <a href="#" target="_blank">sources</a> appear.
+  credits: 'This is the credit field'
+  show_download_links: false
+  show_in_feeds: true

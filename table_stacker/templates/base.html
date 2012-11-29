@@ -1,48 +1,131 @@
+<!-- nothing changed -->
 <!DOCTYPE html>
+
+<!-- begin document -->
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>{% block title %}{% if site_name %}{{ site_name }}{% else %}All Tables{% endif %}{% endblock %}</title>
-    <meta name="keywords" content="{% block keywords %}tablstacker{% endblock %}" >
-    <meta name="description" content="{% block description %}{% endblock %}" >
-    
-    <link href='{{ STATIC_URL }}css/blueprint/screen.css' rel='stylesheet' type='text/css' media='all' />
-    <link href='{{ STATIC_URL }}css/blueprint/typography.css' rel='stylesheet' type='text/css' media='all' />
-    <link href='{{ STATIC_URL }}css/style.css' rel='stylesheet' type='text/css' media='all' />
-    {% block extra-css %}
-    {% endblock %}
-    
-    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
-    <script type="text/javascript">
-      google.load("jquery", "1", {uncompressed:true})
-    </script>
-    {% block extra-js %}
-    {% endblock %}
-    
-    {% block extra-head %}
-        <link rel="alternate" href="/feeds/latest/" type="application/rss+xml" title="Latest spreadsheets" id="latest" />
-    {% endblock %}
-    
-    {% block facebook %}
-        {% if site_name %}<meta property="og:site_name" content="{{ site_name }}"/>{% endif %}
-        {% if facebook_admins %}<meta property="fb:admins" content="{{ facebook_admins }}"/>{% endif %}
-    {% endblock %}
-    
-  </head>
-  <body>
-    <div class="container">
-        <div id="header" class="span-24 last serif">  
-              {% block headline %}{% endblock %}
-        </div>
-        <hr style="margin:0;" />
-        <div id="content" class="span-24 sans">
-          {% block content %}{% endblock %}
-        </div>
-        <div id="footer" class="span-24 last" style="padding:10px 0; font-size:12px;">  
-              {% block footer %}
-              <center>This is Table Stacker. It publishes spreadsheets. You can build your own in minutes. <a target="_blank" href="https://github.com/datadesk/latimes-table-stacker">Here's how</a>.</center>
-              {% endblock %}
-        </div>
-    </div>
-  </body>
+
+<!-- begin header -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>{% block title %}{% if site_name %}{{ site_name }}{% else %}All Tables{% endif %}{% endblock %}</title>
+<meta name="keywords" content="{% block keywords %}tablstacker{% endblock %}" >
+<meta name="description" content="{% block description %}{% endblock %}" >
+<!-- nothing changed -->
+
+
+<!-- begin links to custom css here -->
+<link href='http://www.scpr.org/assets/application.css' rel='stylesheet' type='text/css' media='all' />
+<link href='http://projects.scpr.org/static/static-files/css/tablestacker-tables/styles.css' rel='stylesheet' type='text/css' media='all' />
+<!-- end links to custom css here -->
+
+<!-- extra css configured in yaml -->
+{% block extra-css %}
+{% endblock %}
+<!-- extra css configured in yaml -->
+
+
+<!-- begin custom scripts -->
+<script type="text/javascript" src="http://use.typekit.com/mhc7oxs.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<!-- end custom scripts -->
+
+
+<!-- nothing changed -->
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">
+google.load("jquery", "1", {uncompressed:true})
+</script>
+<!-- nothing changed -->
+
+
+<!-- extra js configured in table-detail -->
+{% block extra-js %}
+{% endblock %}
+<!-- extra js configured in table-detail -->
+
+
+<!--
+{% block extra-head %}
+<link rel="alternate" href="/feeds/latest/" type="application/rss+xml" title="Latest spreadsheets" id="latest" />
+{% endblock %}
+
+{% block facebook %}
+{% if site_name %}<meta property="og:site_name" content="{{ site_name }}"/>{% endif %}
+{% if facebook_admins %}<meta property="fb:admins" content="{{ facebook_admins }}"/>{% endif %}
+{% endblock %}
+-->
+
+</head>
+<!-- end header -->
+
+<!-- begin body -->
+<body class="minimal">
+
+<!-- begin container -->
+<div class="container">
+
+<!-- begin kpcc header -->
+<header>
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span16">
+<h3 id="site-title"><a href="http://www.scpr.org/">KPCC 89.3</a></h3>
+</div>
+<div class="span8">
+<ul class="header-links clearfix pull-right">
+<li>
+<a href="https://scprcontribute.publicradio.org/" class="pledge-now icon">Contribute to KPCC</a>
+<a href="https://scprcontribute.publicradio.org/"><b>Pledge now</b></a>
+</li>
+<li>
+<div class="share-links clearfix">
+<a href="#" class="facebook icon">Facebook</a>
+<a href="#" class="twitter icon">Twitter</a>
+</div>
+<b>Share this page</b>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+</header>
+<!-- end kpcc header -->
+
+<!-- begin kpcc -->
+<div class="container-fluid">
+<div id="main">
+
+<div class="article-header last serif">
+{% block headline %}{% endblock %}
+<hr />
+</div>
+<!-- end kpcc -->
+
+<!-- begin content -->
+<div id="content" class="span-24 sans">
+{% block content %}{% endblock %}
+</div>
+<!-- end content -->
+
+</div>
+</div>
+</div>
+<!-- end container -->
+
+<footer>
+<div class="container-fluid">
+<ul>
+<li><a href="http://scpr.org/terms/">Terms &amp; Conditions</a></li>
+<li><a href="http://scpr.org/privacy/">Privacy</a></li>
+<li><a href="http://scpr.org/web_site_feedback">Website Feedback</a></li>
+<li>Copyright 2001 &copy; Southern California Public Radio</li>
+</ul>
+</div>
+</footer>
+
+</body>
+<!-- end body -->
+
 </html>
+<!-- end document -->
