@@ -135,6 +135,15 @@ def dollars(value, decimal_places=2):
     return format % intcomma(safevalue)
 
 
+def email_address(title, address):
+    """
+    Wrap the email address in mailto: tag, if the link exists.
+    """
+    if not address:
+        return title
+    return '<a target="_blank" href="mailto:%(address)s" title="%(title)s">%(title)s</a>' % {'address': address, 'title': title}
+
+
 def intcomma(value):
     """
     Borrowed from django.contrib.humanize
@@ -352,6 +361,7 @@ DEFAULT_FORMATTERS = {
     'date_and_time': date_and_time,
     'dollar_signs': dollar_signs,
     'dollars': dollars,
+    'email_address': email_address,
     'link': link,
     'image': image,
     'intcomma': intcomma,
