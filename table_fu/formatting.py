@@ -141,7 +141,7 @@ def email_address(title, address):
     """
     if not address:
         return title
-    return '<a target="_blank" href="mailto:%(address)s" title="%(title)s">Contact</a>' % {'address': address, 'title': title}
+    return '<a target="_blank" href="mailto:%(address)s" title="%(title)s">%(title)s</a>' % {'address': address, 'title': title}
 
 
 def intcomma(value):
@@ -180,7 +180,7 @@ def link(title, url):
     """
     if not url:
         return title
-    return '<a target="_blank" href="%(url)s" title="%(title)s">Details</a>' % {'url': url, 'title': title}
+    return '<a target="_blank" href="%(url)s" title="%(title)s">%(title)s</a>' % {'url': url, 'title': title}
 
 
 def percentage(value, decimal_places=1, multiply=True):
