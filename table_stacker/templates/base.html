@@ -1,128 +1,151 @@
-<!-- nothing changed -->
 <!DOCTYPE html>
 
-<!-- begin document -->
-<html>
+<!-- begin doc -->
+<html lang="en">
 
 <!-- begin header -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>{% block title %}{% if site_name %}{{ site_name }}{% else %}All Tables{% endif %}{% endblock %}</title>
-<meta name="keywords" content="{% block keywords %}tablstacker{% endblock %}" >
-<meta name="description" content="{% block description %}{% endblock %}" >
-<!-- nothing changed -->
 
+    <!-- begin meta -->
+    <title>{% block title %}{% if site_name %}{{ site_name }}{% else %}All Tables{% endif %}{% endblock %}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="keywords" content="{% block keywords %}tablstacker{% endblock %}" >
+    <meta name="description" content="{% block description %}{% endblock %}" >
+    <meta name="robots" content="" />
+    <meta name="author" content="#, &#169; 2011">
+    <meta name="google-site-verification" content="#" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta name="viewport" id="meta-viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
-<!-- begin links to custom css here -->
-<link href='http://www.scpr.org/assets/application.css' rel='stylesheet' type='text/css' media='all' />
-<link href='http://projects.scpr.org/static/static-files/css/tablestacker-tables/styles.css' rel='stylesheet' type='text/css' media='all' />
-<!-- end links to custom css here -->
-
-<!-- extra css configured in yaml -->
-{% block extra-css %}
-{% endblock %}
-<!-- extra css configured in yaml -->
-
-
-<!-- begin custom scripts -->
-<script type="text/javascript" src="http://use.typekit.com/mhc7oxs.js"></script>
-<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-<!-- end custom scripts -->
-
-
-<!-- nothing changed -->
-<script type="text/javascript" src="http://www.google.com/jsapi"></script>
-<script type="text/javascript">
-google.load("jquery", "1", {uncompressed:true})
-</script>
-<!-- nothing changed -->
-
-
-<!-- extra js configured in table-detail -->
-{% block extra-js %}
-{% endblock %}
-<!-- extra js configured in table-detail -->
-
+    {% block facebook %}
+    {% endblock %}
 
 <!--
-{% block extra-head %}
-<link rel="alternate" href="/feeds/latest/" type="application/rss+xml" title="Latest spreadsheets" id="latest" />
-{% endblock %}
-
-{% block facebook %}
-{% if site_name %}<meta property="og:site_name" content="{{ site_name }}"/>{% endif %}
-{% if facebook_admins %}<meta property="fb:admins" content="{{ facebook_admins }}"/>{% endif %}
-{% endblock %}
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="#" />
+    <meta property="og:url" content="#" />
+    <meta property="og:description" content="#" />
 -->
+    <!-- end meta -->
+
+    <!-- begin css -->
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="http://projects.scpr.org/static/static-files/css/interactive-project-shell/foundation-styles.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="http://projects.scpr.org/static/static-files/css/tablestacker-tables/styles.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" media="all" />
+
+    {% block extra-css %}
+    {% endblock %}
+
+    <!-- end css -->
+
+    <!-- begin base scripts -->
+    <script src="http://use.typekit.com/mhc7oxs.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <script async="" src="http://www.google-analytics.com/ga.js"></script>
+    <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script src="http://projects.scpr.org/static/static-files/scripts/modernizr-2.5.3.min.js"></script>
+    <script src="http://projects.scpr.org/static/static-files/scripts/jquery.tablesorter.js"></script>
+    <script src="http://projects.scpr.org/static/static-files/scripts/jquery.tablesorter.pager.js"></script>
+    <script src="http://projects.scpr.org/static/static-files/scripts/jquery.tablesorter.multipagefilter.js"></script>
+    <script type="text/javascript">
+        /* For picking out bits from the query string */
+        var getParameterByName = function(name) {
+          name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+          var regexS = "[\\?&]" + name + "=([^&#]*)";
+          var regex = new RegExp(regexS);
+          var results = regex.exec(window.location.href);
+          if(results == null)
+            return "";
+          else
+            return decodeURIComponent(results[1].replace(/\+/g, " "));
+        };
+    </script>
+    <!-- end base scripts -->
+
+    {% block extra-js %}
+    {% endblock %}
 
 </head>
 <!-- end header -->
 
-<!-- begin body -->
 <body class="minimal">
-
-<!-- begin container -->
-<div class="container">
-
-<!-- begin kpcc header -->
-<header>
-<div class="container-fluid">
-<div class="row-fluid">
-<div class="span16">
-<h3 id="site-title"><a href="http://www.scpr.org/">KPCC 89.3</a></h3>
+<div id="kpcc-header">
+    {% block kpcc-header %}{% endblock %}
 </div>
-<div class="span8">
-<ul class="header-links clearfix pull-right">
-<li>
-<a href="https://scprcontribute.publicradio.org/" class="pledge-now icon">Contribute to KPCC</a>
-<a href="https://scprcontribute.publicradio.org/"><b>Pledge now</b></a>
-</li>
-<li>
-<div class="share-links clearfix">
-<a href="#" class="facebook icon">Facebook</a>
-<a href="#" class="twitter icon">Twitter</a>
-</div>
-<b>Share this page</b>
-</li>
-</ul>
-</div>
+    <div id="data-container" class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div id="data-details">
+                    <div id="article-header">
+                    {% block headline %}{% endblock %}
+                    </div>
+                </div>
+                <div id="data-visuals">
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+        </div>
+        <div id="data-footer">
+            {% block footer %}{% endblock %}
+        </div>
+    </div>
+<div id="kpcc-footer">
+    {% block kpcc-footer %}{% endblock %}
 </div>
 
-</div>
-</header>
-<!-- end kpcc header -->
+    <!-- begin scripts -->
+    <script src="http://projects.scpr.org/static/static-files/scripts/responsive-tables.js"></script>
 
-<!-- begin kpcc -->
-<div class="container-fluid">
-<div id="main">
+<!--
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.3/underscore-min.js"></script>
+    <script src="http://projects.scpr.org/static/static-files/scripts/handlebars-1.0.rc.1.js"></script>
+    <script src="http://projects.scpr.org/static/static-files/scripts/swag.js"></script>
+    <script src="static-files/scripts/template-scripts.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/1.7.2/moment.min.js"></script>
+    <script src="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap.js"></script>
+    <script src="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-transition.js"></script>
+    <script src="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-alert.js"></script>
+    <script src="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-modal.js"></script>
+    <script src="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-dropdown.js"></script>
+    <script src="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-carousel.js"></script>
+    <script src="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-alert.js"></script>
+    <script src="static-files/scripts/data-script.js"></script>
+-->
+    <!-- end scripts -->
 
-<div class="article-header last serif">
-{% block headline %}{% endblock %}
-<hr />
-</div>
-<!-- end kpcc -->
+    <!-- begin analytics -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-624724-5']);
+        _gaq.push(['_trackPageview']);
 
-<!-- begin content -->
-<div id="content" class="span-24 sans">
-{% block content %}{% endblock %}
-</div>
-<!-- end content -->
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
 
-</div>
-</div>
-</div>
-<!-- end container -->
-
-<footer>
-<div class="container-fluid">
-<ul>
-<li><a href="http://scpr.org/terms/">Terms &amp; Conditions</a></li>
-<li><a href="http://scpr.org/privacy/">Privacy</a></li>
-<li><a href="http://scpr.org/web_site_feedback">Website Feedback</a></li>
-<li>Copyright 2001 &copy; Southern California Public Radio</li>
-</ul>
-</div>
-</footer>
+    <script type="text/javascript">
+        var _sf_async_config={uid:2825,domain:"projects.scpr.org"};
+        (function(){
+            function loadChartbeat() {
+                window._sf_endpt=(new Date()).getTime();
+                var e = document.createElement('script');
+                e.setAttribute('language', 'javascript');
+                e.setAttribute('type', 'text/javascript');
+                e.setAttribute('src',
+                    (("https:" == document.location.protocol) ? "https://a248.e.akamai.net/chartbeat.download.akamai.com/102508/" : "http://static.chartbeat.com/") + "js/chartbeat.js");
+                document.body.appendChild(e);
+            };
+            var oldonload = window.onload;
+            window.onload = (typeof window.onload != 'function') ? loadChartbeat : function() { oldonload(); loadChartbeat(); };
+        })();
+    </script>
+    <!-- end analytics -->
 
 </body>
 <!-- end body -->

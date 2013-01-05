@@ -13,20 +13,20 @@ table:
       - Location
       - Phone
       - Email
-      - Clients serviced
+      - Serves
       - Website
-      - Religious or cultural affiliation
+      - Affiliation
       - Need
     style:
-      Organization: 'text-align:left;'
-      Mission: 'text-align:left;'
-      Location: 'text-align:left;'
-      Phone: 'text-align:left; width: 15px;'
-      Email: 'text-align:left; width: 15px;'
-      Clients serviced: 'text-align:left; width: 15px;'
-      Website: 'text-align:left; width: 15px;'
-      Religious or cultural affiliation: 'text-align:left; width: 15px;'
-      Need: 'text-align:left;'
+      Organization: 'width: 15%;'
+      Mission: 'width: 25%;'
+      Location: 'width: 15%;'
+      Phone: 'width: 15%;'
+      Email: 'width: 5%;'
+      Serves: 'width: 5%;'
+      Website: 'width: 5%;'
+      Affiliation: 'width: 5%;'
+      Need: 'width: 10%;'
     sorted_by:
       - Organization: ascending
     formatting:

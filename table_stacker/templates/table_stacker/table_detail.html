@@ -33,104 +33,132 @@
             return decodeURIComponent(results[1].replace(/\+/g, " "));
         };
     </script>
-    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+    <!-- <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script> -->
+{% endblock %}
+
+{% block kpcc-header %}
+    <header>
+        <div class="container-fluid">
+            <div class="row-fluid">
+
+            <!-- begin header logo -->
+            <div class="span8">
+                <h3 id="site-title" ><a href="http://www.scpr.org/">KPCC 89.3</a></h3>
+            </div>
+            <!-- end header logo -->
+
+            <!-- begin share functions -->
+            <div class="span4">
+                <ul class="header-links clearfix pull-right">
+                    <li>
+                    <a href="https://scprcontribute.publicradio.org/" class="pledge-now icon">Contribute to KPCC</a>
+                    <a href="https://scprcontribute.publicradio.org/" target="_blank"><b>Pledge now</b></a>
+                    </li>
+                    <li>
+                    <div class="share-links clearfix">
+                    <script>function fbs_click() {u=location.href;t=document.title;window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');return false;}</script>
+
+                    <a class="facebook icon" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fprojects.scpr.org%2Fstatic%2Finteractives%2Fcapital-appreciation-bonds%2F" onClick="return fbs_click()" target="_blank" title="Share This on Facebook"></a>
+
+                    <a class="twitter icon" href="http://twitter.com/share?text=KPCC profiles of volunteers and offers a database to find volunteer and charitable opportunities this holiday season: &url=http://projects.scpr.org/static/interactives/capital-appreciation-bonds/"target="_blank"></a>
+                    </div>
+                    <b>Share this page</b>
+                    </li>
+                </ul>
+            </div>
+            <!-- end share functions -->
+
+            </div>
+        </div>
+    </header>
 {% endblock %}
 
 {% block headline %}
     <h4 id="kicker">{% if object.kicker %}{{ object.kicker|safe }}{% else %}Spreadsheet{% endif %}</h4>
     <h1 id="title">{{ object.title|safe }}</h1>
+    {% if object.description %}
+        <div id="description">
+            <p>{{ object.description|safe }}</p></div>
+    {% endif %}
+    <hr />
 {% endblock %}
 
 {% block content %}
+
+<!-- begin table fu -->
 <div id="table_fu">
 
-<!-- orginal code left in -->
-<div class="clear"></div>
+    {% if object.legend %}
+        <div id="legend">{{ object.legend|safe }}</div>
+    {% endif %}
 
-{% if object.description %}
-    <div id="description">{{ object.description|safe }}</div>
-{% endif %}
+    <!-- begin display ribbon -->
+    <div id="ribbon">
+        <div id="download">
+            <div id="pubdate">
+            <strong>Last Updated: </strong>{{ object.publication_date|date:"N j, Y" }}
+            </div>
+            &nbsp;&nbsp;
 
-<div class="clear"></div>
+            {% if object.show_download_links %}
+            <strong>Download the data: </strong>
+            <a href="{{ object.get_csv_url }}">CSV</a> |
+            <a href="{{ object.get_xls_url }}">XLS</a> |
+            <a target="_blank" href="{{ object.get_json_url }}">JSON</a>
+            {% endif %}
 
-{% if object.legend %}
-    <div id="legend">{{ object.legend|safe }}</div>
-{% endif %}
+        </div>
+        <div id="controls">
+            <div id="filter" >Search (by any term): <input type="text"></div>
 
+            <!-- <div id="pager" class="pager"> -->
+            <div id="pager">
+                <form class="form-inline" {% ifequal table.total_pages 1 %}style="display:none !important;"{% endifequal %}>
+                    <img src="http://projects.scpr.org/static/static-files/images/tablestacker-tables/first.png" class="first">
+                    <img src="http://projects.scpr.org/static/static-files/images/tablestacker-tables/prev.png" class="prev">
+                    <span class="pagedisplay"/>1/{{ table.total_pages }}</span>
+                    <img src="http://projects.scpr.org/static/static-files/images/tablestacker-tables/next.png" class="next">
+                    <img src="http://projects.scpr.org/static/static-files/images/tablestacker-tables/last.png" class="last">
+                    <select class="pagesize">
+                    {% for page_size in table.page_size_list %}
+                    <option {% if forloop.first %}selected="selected"{% endif %} value="{{ page_size }}">{{ page_size }}</option>
+                    {% endfor %}
+                    </select> per page
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- end display ribbon -->
 
-<!-- begin display ribbon -->
-<div id="ribbon">
+    <div class="clear"></div>
 
-<div id="download">
-<strong>Published: </strong>
-<div id="pubdate">{{ object.publication_date|date:"N j, Y" }}</div>&nbsp;&nbsp;
-
-{% if object.show_download_links %}
-<strong>Download the data: </strong>
-<a href="{{ object.get_csv_url }}">CSV</a> |
-<a href="{{ object.get_xls_url }}">XLS</a> |
-<a target="_blank" href="{{ object.get_json_url }}">JSON</a>
-{% endif %}
+    <table id="data" class="tabular table responsive">
+        <thead>
+            <tr>
+                {% for header in table.headers %}
+                    <th style="cursor: pointer; {% if header.style %}{% if header.sortable %}cursor: pointer;{% else %}cursor:default; background:none;{% endif %} {{ header.style }}{% endif %}">
+                        {{ header }}
+                    </th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in table.rows %}
+                <tr>
+                    {% for column in row.data %}
+                        <td style="{{ column.style }}">{{ column|safe }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+        </tfoot>
+    </table>
 
 </div>
+<!-- end table fu -->
 
-<div id="controls">
-<div id="filter" {% if not object.show_search_field %}style="display:none !important;"{% endif %}>Search: <input type="text"></div>
-<div id="pager" class="pager">
-<form class="form-inline" {% ifequal table.total_pages 1 %}style="display:none !important;"{% endifequal %}>
-<img src="http://projects.scpr.org/static/static-files/images/tablestacker-tables/first.png" class="first">
-<img src="http://projects.scpr.org/static/static-files/images/tablestacker-tables/prev.png" class="prev">
-<span class="pagedisplay"/>1/{{ table.total_pages }}</span>
-<img src="http://projects.scpr.org/static/static-files/images/tablestacker-tables/next.png" class="next">
-<img src="http://projects.scpr.org/static/static-files/images/tablestacker-tables/last.png" class="last">
-<select class="pagesize">
-{% for page_size in table.page_size_list %}
-<option {% if forloop.first %}selected="selected"{% endif %} value="{{ page_size }}">{{ page_size }}</option>
-{% endfor %}
-</select> per page
-</form>
-</div>
-</div>
-
-</div>
-<!-- end display ribbon -->
-
-<div class="clear"></div>
-
-<table id="data" class="tabular table responsive">
-<thead>
-<tr>
-{% for header in table.headers %}
-<th style="cursor: pointer; {% if header.style %}{% if header.sortable %}cursor: pointer;{% else %}cursor:default; background:none;{% endif %} {{ header.style }}{% endif %}">
-{{ header }}
-</th>
-{% endfor %}
-</tr>
-</thead>
-<tbody>
-{% for row in table.rows %}
-<tr>
-{% for column in row.data %}
-<td style="{{ column.style }}">{{ column|safe }}</td>
-{% endfor %}
-</tr>
-{% endfor %}
-</tbody>
-<tfoot></tfoot>
-</table>
-
-{% if object.footer %}<div id="footer">{{ object.footer|safe }}</div>{% endif %}
-{% if object.sources %}<div id="sources"><strong>Sources: </strong>{{ object.sources|safe }}</div>{% endif %}
-{% if object.credits %}<div id="credits"><strong>Credits: </strong>{{ object.credits|safe }}</div>{% endif %}
-<div class="open-source">Foundation courtesy of <a href="https://github.com/datadesk/latimes-table-stacker" target="_blank">Table Stacker</a>, a <a href="https://www.djangoproject.com/" target="_blank">Django</a> application that publishes spreadsheets.</div>
-<!-- original code -->
-
-
-<!-- added script -->
-<script type="text/javascript" src="http://projects.scpr.org/static/static-files/scripts/responsive-tables.js"></script>
-<!-- added script -->
-
-<script type='text/javascript'>
+<script type="text/javascript">
     var sortOrder = {{ table.sorted_by }};
     var perPage = {{ table.per_page }};
     $(document).ready(function(){
@@ -157,6 +185,43 @@
         };
     });
 </script>
+{% endblock %}
 
-</div>
+{% block footer %}
+
+<p class="normal-display underline" style="cursor:pointer;" onclick="embedBox()">Embed this visualization</p>
+
+{% if object.sources %}
+    <div id="sources">
+        <p class="normal-display"><strong>Sources: </strong>{{ object.sources|safe }}</p>
+    </div>
+{% endif %}
+
+{% if object.credits %}
+    <div id="credits">
+        <p class="normal-display"><strong>Credits: </strong>{{ object.credits|safe }}</p>
+    </div>
+{% endif %}
+
+    <div id="open-source">
+        <p class="small-display">Built using <a href="https://github.com/datadesk/latimes-table-stacker" target="_blank">Table Stacker</a>, a <a href="https://www.djangoproject.com/" target="_blank">Django</a> application that publishes spreadsheets, and <a href="http://handlebarsjs.com/">handlebars.js</a></p>
+    </div>
+
+{% endblock %}
+
+{% block kpcc-footer %}
+<footer>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <ul>
+                    <li><a href="http://scpr.org/terms/">Terms &amp; Conditions</a></li>
+                    <li><a href="http://scpr.org/privacy/">Privacy</a></li>
+                    <li><a href="http://scpr.org/web_site_feedback">Website Feedback</a></li>
+                    <li>Copyright 2012 &copy; Southern California Public Radio</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
 {% endblock %}
