@@ -189,7 +189,10 @@
 
 {% block footer %}
 
-<p class="normal-display underline" style="cursor:pointer;" onclick="embedBox()">Embed this visualization</p>
+    <!-- thanks for setting the standard Mr. John Keefe -->
+    <div id="embed-this">
+        <p class="hidden-tablet hidden-phone"><span class="btn btn-warning" style="cursor:pointer;" onclick="embedBox()">Embed This</p>
+    </div>
 
 {% if object.sources %}
     <div id="sources">
