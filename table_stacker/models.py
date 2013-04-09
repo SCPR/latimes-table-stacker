@@ -30,7 +30,10 @@ class Table(models.Model):
     description = models.TextField(blank=True)
     legend = models.CharField(max_length=500, blank=True)
     footer = models.TextField(blank=True)
+    read_more = models.TextField(blank=True)
     sources = models.TextField(blank=True)
+    facebook_share_html = models.TextField(blank=True)
+    twitter_share_html = models.TextField(blank=True)
     credits = models.TextField(blank=True)
     show_download_links = models.BooleanField(default=True)
     show_search_field = models.BooleanField(default=True)
@@ -39,39 +42,39 @@ class Table(models.Model):
     show_in_feeds = models.BooleanField(default=True)
     objects = TableManager()
     live = TableLiveManager()
-    
+
     class Meta:
         ordering = ("-publication_date", "-publication_time")
-    
+
     def __unicode__(self):
         return self.title
-    
+
     @models.permalink
     def get_absolute_url(self):
         return ('table-detail', [self.slug,])
-    
+
     @models.permalink
     def get_csv_url(self):
         return ('table-csv', [self.slug,])
-    
+
     @models.permalink
     def get_xls_url(self):
         return ('table-xls', [self.slug,])
-    
+
     @models.permalink
     def get_json_url(self):
         return ('table-json', [self.slug,])
-    
+
     def get_share_url(self):
         """
         The link we can use for share buttons.
         """
         site = Site.objects.get_current()
         return 'http://%s%s' % (site.domain, self.get_absolute_url())
-    
+
     def get_tablefu_opts(self):
         return yaml.load(self.yaml_data).get('column_options', {})
-    
+
     def get_tablefu(self):
         """
         Trick the data out with TableFu.
@@ -80,7 +83,7 @@ class Table(models.Model):
         data = open(path, 'r')
         return TableFu(data, **self.get_tablefu_opts())
     tablefu = property(get_tablefu)
-    
+
     def get_publication_datetime(self):
         """
         Combine publication date and time where possible.

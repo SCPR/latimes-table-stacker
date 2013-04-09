@@ -14,7 +14,7 @@ class TableDetailView(BuildableDetailView):
     All about one table.
     """
     queryset = Table.live.all()
-    
+
     def get_context_data(self, **kwargs):
         context = super(TableDetailView, self).get_context_data(**kwargs)
         context.update({

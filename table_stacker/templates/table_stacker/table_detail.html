@@ -6,14 +6,19 @@
     {% block description %}{{ object.description|striptags|safe }}{% endblock %}
 {% endif %}
 
+
 {% block facebook %}
     {{ block.super }}
     <meta property="og:type" content="article"/>
+    <meta property="og:image" content="http://www.scpr.org/assets/logo-masthead.png" />
     <meta property="og:title" content="{{ object.title|safe }}"/>
     <meta property="og:url" content="{{ object.get_absolute_url }}"/>
     {% if object.description %}
-    <meta property="og:description" content="{{ object.description|striptags|safe }}"/>
+        <meta property="og:description" content="{{ object.description|striptags|safe }}"/>
     {% endif %}
+{% endblock %}
+
+{% block extra-css %}
 {% endblock %}
 
 {% block extra-js %}
@@ -33,7 +38,6 @@
             return decodeURIComponent(results[1].replace(/\+/g, " "));
         };
     </script>
-    <!-- <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script> -->
 {% endblock %}
 
 {% block kpcc-header %}
@@ -57,10 +61,8 @@
                     <li>
                     <div class="share-links clearfix">
                     <script>function fbs_click() {u=location.href;t=document.title;window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');return false;}</script>
-
-                    <a class="facebook icon" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fprojects.scpr.org%2Fstatic%2Finteractives%2Fcapital-appreciation-bonds%2F" onClick="return fbs_click()" target="_blank" title="Share This on Facebook"></a>
-
-                    <a class="twitter icon" href="http://twitter.com/share?text=KPCC profiles of volunteers and offers a database to find volunteer and charitable opportunities this holiday season: &url=http://projects.scpr.org/static/interactives/capital-appreciation-bonds/"target="_blank"></a>
+                    <a class="facebook icon" href="https://www.facebook.com/sharer/sharer.php?u={{ object.facebook_share_html|safe }}" onClick="return fbs_click()" target="_blank" title="Share This on Facebook"></a>
+                    <a class="twitter icon" href="http://twitter.com/share?{{ object.twitter_share_html|safe }}" target="_blank"></a>
                     </div>
                     <b>Share this page</b>
                     </li>
@@ -74,13 +76,32 @@
 {% endblock %}
 
 {% block headline %}
-    <h4 id="kicker">{% if object.kicker %}{{ object.kicker|safe }}{% else %}Spreadsheet{% endif %}</h4>
-    <h1 id="title">{{ object.title|safe }}</h1>
-    {% if object.description %}
-        <div id="description">
-            <p>{{ object.description|safe }}</p></div>
+<div id="content-article">
+    <h4 class="kicker">
+        {% if object.kicker %}{{ object.kicker|safe }}{% else %}Spreadsheet{% endif %}
+    </h4>
+    <h1>{{ object.title|safe }}</h1>
+
+    {% if object.credits %}
+        <div id="content-article-metadata">
+            <p><span class="credits">{{ object.credits|safe }}</span> | <span class="pubdate">Updated {{ object.publication_date|date:"N j, Y" }}</span></p>
+        </div>
     {% endif %}
-    <hr />
+
+    {% if object.description %}
+    <div id="content-article-text">
+        <p>{{ object.description|safe }}</p>
+    </div>
+    {% endif %}
+
+    {% if object.read_more %}
+        <div id="content-article-buttons">
+            <a class="btn btn-info" href="{{ object.read_more|safe }}" target="_blank">Read More</a>
+        </div>
+    {% endif %}
+
+</div>
+<hr />
 {% endblock %}
 
 {% block content %}
@@ -95,16 +116,13 @@
     <!-- begin display ribbon -->
     <div id="ribbon">
         <div id="download">
-            <div id="pubdate">
-            <strong>Last Updated: </strong>{{ object.publication_date|date:"N j, Y" }}
-            </div>
-            &nbsp;&nbsp;
+            <div id="pubdate"></div>
 
             {% if object.show_download_links %}
-            <strong>Download the data: </strong>
-            <a href="{{ object.get_csv_url }}">CSV</a> |
-            <a href="{{ object.get_xls_url }}">XLS</a> |
-            <a target="_blank" href="{{ object.get_json_url }}">JSON</a>
+                <strong>Download the data: </strong>
+                <a href="{{ object.get_csv_url }}">CSV</a> |
+                <a href="{{ object.get_xls_url }}">XLS</a> |
+                <a target="_blank" href="{{ object.get_json_url }}">JSON</a>
             {% endif %}
 
         </div>
@@ -132,7 +150,7 @@
 
     <div class="clear"></div>
 
-    <table id="data" class="tabular table responsive">
+    <table id="data" class="responsive tabular table table-striped table-bordered">
         <thead>
             <tr>
                 {% for header in table.headers %}
@@ -189,20 +207,16 @@
 
 {% block footer %}
 
+{% if object.show_embed_button %}
     <!-- thanks for setting the standard Mr. John Keefe -->
     <div id="embed-this">
         <p class="hidden-tablet hidden-phone"><span class="btn btn-warning" style="cursor:pointer;" onclick="embedBox()">Embed This</p>
     </div>
+{% endif %}
 
 {% if object.sources %}
     <div id="sources">
         <p class="normal-display"><strong>Sources: </strong>{{ object.sources|safe }}</p>
-    </div>
-{% endif %}
-
-{% if object.credits %}
-    <div id="credits">
-        <p class="normal-display"><strong>Credits: </strong>{{ object.credits|safe }}</p>
     </div>
 {% endif %}
 
