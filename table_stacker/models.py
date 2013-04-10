@@ -28,6 +28,7 @@ class Table(models.Model):
     publication_date = models.DateField()
     publication_time = models.TimeField(blank=True, null=True)
     description = models.TextField(blank=True)
+    content_explainer = models.TextField(blank=True)
     legend = models.CharField(max_length=500, blank=True)
     footer = models.TextField(blank=True)
     read_more = models.TextField(blank=True)

@@ -38,6 +38,7 @@ class TableManager(models.Manager):
             obj.publication_time=yaml_data.get("publication_time", None)
             obj.legend=yaml_data.get('legend', '')
             obj.description=yaml_data.get('description', '')
+            obj.content_explainer=yaml_data.get('content_explainer', '')
             obj.footer=yaml_data.get('footer', '')
             obj.read_more=yaml_data.get('read_more', '')
             obj.sources=yaml_data.get('sources', '')
@@ -62,6 +63,7 @@ class TableManager(models.Manager):
                 publication_time=yaml_data.get("publication_time", None),
                 legend=yaml_data.get('legend', ''),
                 description=yaml_data.get('description', ''),
+                content_explainer=yaml_data.get('content_explainer', ''),
                 footer=yaml_data.get('footer', ''),
                 read_more=yaml_data.get('read_more', ''),
                 sources=yaml_data.get('sources', ''),

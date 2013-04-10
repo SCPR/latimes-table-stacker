@@ -5,7 +5,8 @@ table:
     kicker: Database
     footer: "<p></p>"
     byline: Chris Keller
-    description: "A slightly smaller percentage of California students dropped out of high school last year -- 4% vs 4.2% -- than during the 2010-2011 school year, according to data released by the California Department of Education on Tuesday. School districts in Los Angeles and San Bernardino counties performed percentage points worse than the state average. Those in Orange County, Riverside and Ventura performed above the state average. Dropout rates are worse among Hispanic and African American students than their white and Asian peers. How is your child's school district performing? Find it in the chart below."
+    description: "A slightly smaller percentage of California students dropped out of high school last year than during the 2010-2011 school year -- 4% vs 4.2% -- according to data released by the California Department of Education on Tuesday. School districts in Los Angeles and San Bernardino counties performed percentage points worse than the state average. Those in Orange County, Riverside and Ventura performed above the state average. Dropout rates are worse among Hispanic and African American students than their white and Asian peers. How is your child's school district performing? Find it in the chart below."
+    content_explainer: "This database shows the number of dropouts during the 2011-2012 school year by ethnicity -- Hispanic, Asian, African-American &amp; White -- and the percentage change from the prior year -- increase or decrease -- as recorded by school districts in Los Angeles, Orange, Riverside, San Bernardino and Ventura counties and reported to the state Department of Education."
     publication_date: 2013-4-9
     publication_time: "12:30:00"
     read_more: 'http://dq.cde.ca.gov/dataquest/'
@@ -66,5 +67,5 @@ table:
                 method: percent_change
         per_page: 25
     is_published: true
-    show_download_links: false
+    show_download_links: true
     show_in_feeds: true
