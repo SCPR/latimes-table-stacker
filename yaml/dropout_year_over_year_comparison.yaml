@@ -1,5 +1,5 @@
 table:
-    title: Compare dropout rates among local schools districts
+    title: Compare dropout rates among local school districts
     file: dropout_year_over_year_comparison.csv
     slug: dropout_year_over_year_comparison
     kicker: Database
@@ -9,7 +9,7 @@ table:
     content_explainer: "This database shows the number of dropouts during the 2011-2012 school year by ethnicity -- Hispanic, Asian, African-American &amp; White -- and the percentage change from the prior year -- increase or decrease -- as recorded by school districts in Los Angeles, Orange, Riverside, San Bernardino and Ventura counties and reported to the state Department of Education."
     publication_date: 2013-4-9
     publication_time: "12:30:00"
-    read_more: 'http://dq.cde.ca.gov/dataquest/'
+    read_more: 'http://www.scpr.org/blogs/education/2013/04/09/13234/california-high-school-graduation-rate-creeps-up-t/'
     facebook_share_html: 'http%3A%2F%2Fpr ojects.scpr.org%2Fstatic%2Fdatabases%2Fschool-district-dropout-rates%2F'
     twitter_share_html: 'text=A slightly smaller percentage of Calif students dropped out of high school last year than during the 2010-2011&url=http://projects.scpr.org/static/databases/school-district-dropout-rates/'
     sources: '<a href="http://dq.cde.ca.gov/dataquest/" target="_blank">California Department of Education</a>'
@@ -17,8 +17,10 @@ table:
     show_embed_button: false
     column_options:
         columns:
-            - County
             - District
+            - County
+            - Grade 9_12 Enrollment
+            - Enrollment Change from 2010_2011
             - Grade 9_12
             - Change from 2010_2011
             - Hispanic
@@ -30,8 +32,10 @@ table:
             - White
             - White Change from 2010_2011
         style:
-            County: 'width: 20%;'
             District: 'width: 35%;'
+            County: 'width: 20%;'
+            Grade 9_12 Enrollment: 'width: 5%;'
+            Enrollment Change from 2010_2011: 'width: 5%;'
             Grade 9_12: 'width: 5%;'
             Change from 2010_2011: 'width: 5%;'
             Hispanic: 'width: 5%;'
@@ -45,6 +49,10 @@ table:
         sorted_by:
             - District: ascending
         formatting:
+            Grade 9_12 Enrollment:
+                method: intcomma
+            Enrollment Change from 2010_2011:
+                method: percent_change
             Grade 9_12:
                 method: intcomma
             Change from 2010_2011:

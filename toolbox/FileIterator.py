@@ -3,14 +3,14 @@ import logging
 
 def FileIterator(base, separator=os.path.sep):
   """Walks a directory tree, returning all the files. Follows symlinks.
-  
+
   Args:
     base: The base path to search for files under.
     separator: Path separator used by the running system's platform.
-  
+
   Yields:
     Paths of files found, relative to base.
-  
+
   """
   dirs = ['']
   while dirs:

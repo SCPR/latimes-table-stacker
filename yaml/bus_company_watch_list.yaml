@@ -5,29 +5,28 @@ table:
   kicker: Database
   footer: "<p></p>"
   byline: Lauren Osen & Chris Keller
-  description: '<p>In California, 62 out of 349 legally operating commercial bus companies have racked up enough safety violations to appear on a watch list kept by the Department of Transportations Federal Motor Carrier Safety Administration.</p><p>The list ostensibly allows for increased inspections -- although California
-Highway Patrol officers say they cant pull the buses over simply for being on the list.</p><p>Among the companies on the watch list is Scapadas Magicas, the National City company that owns the bus that crashed in Yucaipa on Feb. 3. Seven people died and another 20 were injured in the crash.</p><p>The federal records are hard to search, so as a service to our audience, KPCC has created this searchable database of safety records of commercial bus companies in California.</p><p><a class="btn btn-info" href="#">Read More</a></p>'
+  description: '<p>In California, 62 out of 349 legally operating commercial bus companies have racked up enough safety violations to appear on a watch list kept by the Department of Transportations Federal Motor Carrier Safety Administration.</p><p>The list ostensibly allows for increased inspections -- although California Highway Patrol officers say they cant pull the buses over simply for being on the list.</p><p>Among the companies on the watch list is Scapadas Magicas, the National City company that owns the bus that crashed in Yucaipa on Feb. 3. Seven people died and another 20 were injured in the crash.</p><p>The federal records are hard to search, so as a service to our audience, KPCC has created this searchable database of safety records of commercial bus companies in California.</p><p><a class="btn btn-info" href="#">Read More</a></p>'
   column_options:
     columns:
-      - Carrier
-      - Location
-      - Status
-      - Operational
+      - Carrier Name
+      - Carrier Location
+      - Carrier Status
+      - Allowed to Operate
       - Watchlist Reason
       - Fleet Size
-      - BASIC
-      - SAFER
+      - BASIC Status
+      - SAFER Details
     style:
-      Carrier: 'width: 20%;'
-      Location: 'width: 20%;'
-      Status: 'width: 10%;'
-      Operational: 'width: 5%;'
+      Carrier Name: 'width: 20%;'
+      Carrier Location: 'width: 20%;'
+      Carrier Status: 'width: 10%;'
+      Allowed to Operate: 'width: 5%;'
       Watchlist Reason: 'width: 20%;'
       Fleet Size: 'width: 5%;'
-      BASIC: 'width: 10%;'
-      SAFER: 'width: 10%;'
+      BASIC Status: 'width: 10%;'
+      SAFER Details: 'width: 10%;'
     sorted_by:
-      - Status: ascending
+      - BASIC Status: ascending
     formatting:
       Carrier Name:
         method: title
@@ -41,14 +40,14 @@ Highway Patrol officers say they cant pull the buses over simply for being on th
         method: title
       Fleet Size:
         method: intcomma
-      BASIC:
+      BASIC Status:
         method: link
         arguments:
-            - BASIC
-      SAFER:
+            - BASIC Status
+      SAFER Details:
         method: link
         arguments:
-            - SAFER
+            - SAFER Details
     per_page: 30
   is_published: true
   publication_date: 2013-2-11

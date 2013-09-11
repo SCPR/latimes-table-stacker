@@ -107,7 +107,7 @@
 {% block content %}
 
 <div id="content-explainer">
-    <p><span class="data-instructions"><strong>About this database: </strong>{{ object.content_explainer }}</p>
+    <p><span class="data-instructions"><strong>About this database: </strong>{{ object.content_explainer|safe }}</p>
 </div>
 
 <!-- begin table fu -->
