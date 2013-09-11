@@ -1,0 +1,129 @@
+table:
+    title: Xxxxx xxxxx xxxxxx
+    file: state_vaccine_kindergarten_2012_2013.csv
+    slug: state_vaccine_kindergarten_2012_2013
+    kicker: Database
+    footer: "<p></p>"
+    byline: Xxxxxx & Xxxxxx
+    description: "Xxxxxx"
+    content_explainer: "Xxxxxx"
+    publication_date: 2013-9-11
+    publication_time: "12:00:00"
+    read_more: '#'
+    facebook_share_html: '#'
+    twitter_share_html: '#'
+    sources: '<a href="#" target="_blank">Xxxxxxxxx</a>'
+    credits: 'Xxxxxxxxx'
+    show_embed_button: false
+    column_options:
+        columns:
+          - school_code
+          - county
+          - public_private
+          - school_district
+          - city
+          - school_name
+          - enrollment
+          - up_to_date_number
+          - up_to_date_percent
+          - conditional_number
+          - conditional_percent
+          - pme_number
+          - pme_percent
+          - pbe_number
+          - pbe_percent
+          - dtp_number
+          - dtp_percent
+          - polio_number
+          - polio_percent
+          - mmr_number
+          - mmr_percent
+          - hepb_number
+          - hepb_percent
+          - vari_number
+          - vari_percent
+          - reported
+        style:
+          school_code: 'width: 10%;'
+          county: 'width: 10%;'
+          public_private: 'width: 10%;'
+          school_district: 'width: 10%;'
+          city: 'width: 10%;'
+          school_name: 'width: 10%;'
+          enrollment: 'width: 10%;'
+          up_to_date_number: 'width: 10%;'
+          up_to_date_percent: 'width: 10%;'
+          conditional_number: 'width: 10%;'
+          conditional_percent: 'width: 10%;'
+          pme_number: 'width: 10%;'
+          pme_percent: 'width: 10%;'
+          pbe_number: 'width: 10%;'
+          pbe_percent: 'width: 10%;'
+          dtp_number: 'width: 10%;'
+          dtp_percent: 'width: 10%;'
+          polio_number: 'width: 10%;'
+          polio_percent: 'width: 10%;'
+          mmr_number: 'width: 10%;'
+          mmr_percent: 'width: 10%;'
+          hepb_number: 'width: 10%;'
+          hepb_percent: 'width: 10%;'
+          vari_number: 'width: 10%;'
+          vari_percent: 'width: 10%;'
+          reported: 'width: 10%;'
+        sorted_by:
+          - city: ascending
+        formatting:
+          school_code:
+            method: intcomma
+          county:
+            method: title
+          public_private:
+            method: title
+          school_district:
+            method: title
+          city:
+            method: title
+          school_name:
+            method: title
+          enrollment:
+            method: intcomma
+          up_to_date_number:
+            method: intcomma
+          up_to_date_percent:
+            method: percentage
+          conditional_number:
+            method: intcomma
+          conditional_percent:
+            method: percentage
+          pme_number:
+            method: intcomma
+          pme_percent:
+            method: percentage
+          pbe_number:
+            method: intcomma
+          pbe_percent:
+            method: percentage
+          dtp_number:
+            method: intcomma
+          dtp_percent:
+            method: percentage
+          polio_number:
+            method: intcomma
+          polio_percent:
+            method: percentage
+          mmr_number:
+            method: intcomma
+          mmr_percent:
+            method: percentage
+          hepb_number:
+            method: intcomma
+          hepb_percent:
+            method: percentage
+          vari_number:
+            method: intcomma
+          vari_percent:
+            method: percentage
+        per_page: 20
+    is_published: true
+    show_download_links: false
+    show_in_feeds: true
