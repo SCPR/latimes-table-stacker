@@ -1,131 +1,111 @@
-<!-- nothing changed -->
 <!DOCTYPE html>
 
-<!-- begin document -->
-<html>
+<!-- begin doc -->
+<html lang="en">
 
-<!-- begin header -->
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>{% block title %}{% if site_name %}{{ site_name }}{% else %}All Tables{% endif %}{% endblock %}</title>
-<meta name="keywords" content="{% block keywords %}tablstacker{% endblock %}" >
-<meta name="description" content="{% block description %}{% endblock %}" >
-<!-- nothing changed -->
+    <!-- begin header -->
+    <head>
 
+        <!-- begin meta -->
+        <title>{% block title %}{% if site_name %}{{ site_name }}{% else %}All Tables{% endif %}{% endblock %}</title>
+        <link rel="shortcut icon" href="http://media.scpr.org/favicon.ico">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" id="meta-viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+        <meta name="keywords" content="{% block keywords %}tablstacker{% endblock %}" >
+        <meta name="description" content="{% block description %}{% endblock %}" >
 
-<!-- begin links to custom css here -->
-<link href='http://www.scpr.org/assets/application.css' rel='stylesheet' type='text/css' media='all' />
-<link href='http://projects.scpr.org/static/static-files/css/tablestacker-tables/styles.css' rel='stylesheet' type='text/css' media='all' />
-<!-- end links to custom css here -->
+        {% block facebook %}
+        {% endblock %}
 
-<!-- extra css configured in yaml -->
-{% block extra-css %}
-{% endblock %}
-<!-- extra css configured in yaml -->
+        <!-- additional meta if needed -->
+        <!--
+        <meta name="robots" content="" />
+        <meta name="author" content="#, &#169; 2013">
+        <meta name="google-site-verification" content="#" />
+        <meta content="yes" name="apple-mobile-web-app-capable" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        -->
+        <!-- end meta -->
 
+        <!-- begin css -->
+        <link href="http://projects.scpr.org/static/static-files/css/reset/reset-styles.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="http://projects.scpr.org/static/static-files/bootstrap-v222/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="http://projects.scpr.org/static/static-files/css/interactive-project-shell/foundation-styles.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="http://projects.scpr.org/static/static-files/css/tablestacker-tables/styles.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="http://projects.scpr.org/static/static-files/css/jquery-alerts/jquery.alerts.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="http://projects.scpr.org/static/static-files/bootstrap-v222/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" media="all" />
+        {% block extra-css %}
+        {% endblock %}
+        <!-- end css -->
 
-<!-- begin custom scripts -->
-<script type="text/javascript" src="http://use.typekit.com/mhc7oxs.js"></script>
-<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-<!-- end custom scripts -->
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+            <!--[if lt IE 9]>
+            <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
 
+        <!-- begin base scripts -->
+        <script src="http://use.typekit.com/mhc7oxs.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+        <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
+        <script src="http://projects.scpr.org/static/static-files/scripts/modernizr-2.5.3.min.js"></script>
+        {% block extra-js %}
+        {% endblock %}
+        <!-- end base scripts -->
 
-<!-- nothing changed -->
-<script type="text/javascript" src="http://www.google.com/jsapi"></script>
-<script type="text/javascript">
-google.load("jquery", "1", {uncompressed:true})
-</script>
-<!-- nothing changed -->
+    </head>
+    <!-- end header -->
 
+    <!-- begin body -->
+    <body class="minimal">
+        <div id="kpcc-header">
+            {% block kpcc-header %}{% endblock %}
+        </div>
+        <div id="data-container" class="container-fluid">
+            <div class="row-fluid">
+                <div class="span12">
+                    <div id="data-details">
+                        {% block headline %}{% endblock %}
+                    </div>
+                    <div id="data-visuals">
+                        {% block content %}{% endblock %}
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span12">
+                    <div id="data-footer">
+                        {% block footer %}{% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="kpcc-footer">
+            {% block kpcc-footer %}{% endblock %}
+        </div>
 
-<!-- extra js configured in table-detail -->
-{% block extra-js %}
-{% endblock %}
-<!-- extra js configured in table-detail -->
+            <!-- begin scripts -->
+            <script src="http://projects.scpr.org/static/static-files/scripts/responsive-tables.js"></script>
+            <script src="http://projects.scpr.org/static/static-files/scripts/jquery.alerts.js"></script>
+            <script src="http://projects.scpr.org/static/static-files/bootstrap-v222/bootstrap.min.js"></script>
+            <!-- end scripts -->
 
+        <!-- begin analytics -->
+        <script type="text/javascript">
+            (function() {
+                var ga = document.createElement('script');
+                ga.type = 'text/javascript';
+                ga.async = true;
+                ga.src = '//stream.publicbroadcasting.net/analytics/abf7.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+        <!-- end analytics -->
 
-<!--
-{% block extra-head %}
-<link rel="alternate" href="/feeds/latest/" type="application/rss+xml" title="Latest spreadsheets" id="latest" />
-{% endblock %}
-
-{% block facebook %}
-{% if site_name %}<meta property="og:site_name" content="{{ site_name }}"/>{% endif %}
-{% if facebook_admins %}<meta property="fb:admins" content="{{ facebook_admins }}"/>{% endif %}
-{% endblock %}
--->
-
-</head>
-<!-- end header -->
-
-<!-- begin body -->
-<body class="minimal">
-
-<!-- begin container -->
-<div class="container">
-
-<!-- begin kpcc header -->
-<header>
-<div class="container-fluid">
-<div class="row-fluid">
-<div class="span16">
-<h3 id="site-title"><a href="http://www.scpr.org/">KPCC 89.3</a></h3>
-</div>
-<div class="span8">
-<ul class="header-links clearfix pull-right">
-<li>
-<a href="https://scprcontribute.publicradio.org/" class="pledge-now icon">Contribute to KPCC</a>
-<a href="https://scprcontribute.publicradio.org/"><b>Pledge now</b></a>
-</li>
-<li>
-<div class="share-links clearfix">
-<a href="#" class="facebook icon">Facebook</a>
-<a href="#" class="twitter icon">Twitter</a>
-</div>
-<b>Share this page</b>
-</li>
-</ul>
-</div>
-</div>
-
-</div>
-</header>
-<!-- end kpcc header -->
-
-<!-- begin kpcc -->
-<div class="container-fluid">
-<div id="main">
-
-<div class="article-header last serif">
-{% block headline %}{% endblock %}
-<hr />
-</div>
-<!-- end kpcc -->
-
-<!-- begin content -->
-<div id="content" class="span-24 sans">
-{% block content %}{% endblock %}
-</div>
-<!-- end content -->
-
-</div>
-</div>
-</div>
-<!-- end container -->
-
-<footer>
-<div class="container-fluid">
-<ul>
-<li><a href="http://scpr.org/terms/">Terms &amp; Conditions</a></li>
-<li><a href="http://scpr.org/privacy/">Privacy</a></li>
-<li><a href="http://scpr.org/web_site_feedback">Website Feedback</a></li>
-<li>Copyright 2001 &copy; Southern California Public Radio</li>
-</ul>
-</div>
-</footer>
-
-</body>
-<!-- end body -->
+    </body>
+    <!-- end body -->
 
 </html>
 <!-- end document -->

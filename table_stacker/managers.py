@@ -11,13 +11,13 @@ class TableManager(models.Manager):
         Returns only Tables that are ready to publish.
         """
         return self.filter(is_published=True, show_in_feeds=True)
-    
+
     def update_or_create(self, yaml_data):
         """
         If the Table outlined by the provided YAML file exists, it's updated.
-        
+
         If it doesn't, it's created.
-        
+
         Returns a tuple with the object first, and then a boolean that is True
         when the object was created.
         """
@@ -25,7 +25,7 @@ class TableManager(models.Manager):
             obj = self.get(slug=yaml_data.get("slug", yaml_data['yaml_name']))
         except self.model.DoesNotExist:
             obj = None
-        
+
         if obj:
             obj.csv_name=yaml_data['file']
             obj.yaml_name=yaml_data['yaml_name']
@@ -38,8 +38,12 @@ class TableManager(models.Manager):
             obj.publication_time=yaml_data.get("publication_time", None)
             obj.legend=yaml_data.get('legend', '')
             obj.description=yaml_data.get('description', '')
+            obj.content_explainer=yaml_data.get('content_explainer', '')
             obj.footer=yaml_data.get('footer', '')
+            obj.read_more=yaml_data.get('read_more', '')
             obj.sources=yaml_data.get('sources', '')
+            obj.facebook_share_html=yaml_data.get('facebook_share_html', '')
+            obj.twitter_share_html=yaml_data.get('twitter_share_html', '')
             obj.credits=yaml_data.get('credits', '')
             obj.is_published=yaml_data.get('is_published', False)
             obj.show_download_links=yaml_data.get("show_download_links", True)
@@ -59,8 +63,12 @@ class TableManager(models.Manager):
                 publication_time=yaml_data.get("publication_time", None),
                 legend=yaml_data.get('legend', ''),
                 description=yaml_data.get('description', ''),
+                content_explainer=yaml_data.get('content_explainer', ''),
                 footer=yaml_data.get('footer', ''),
+                read_more=yaml_data.get('read_more', ''),
                 sources=yaml_data.get('sources', ''),
+                facebook_share_html=yaml_data.get('facebook_share_html', ''),
+                twitter_share_html=yaml_data.get('twitter_share_html', ''),
                 credits=yaml_data.get('credits', ''),
                 is_published=yaml_data.get('is_published', False),
                 show_download_links=yaml_data.get("show_download_links", True),

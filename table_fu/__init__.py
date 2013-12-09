@@ -3,7 +3,7 @@
 This is a Python version of Propublica's TableFu Ruby library.
 
 TableFu parses, sorts and formats table-like streams, like CSVs,
-and outputs tables in HTML. It's meant as a utility to make 
+and outputs tables in HTML. It's meant as a utility to make
 getting tabular on the web easier.
 """
 __version__ = "0.3.0"
@@ -19,20 +19,20 @@ from table_fu.formatting import format
 class TableFu(object):
     """
     A table, to be manipulated like a spreadsheet.
-    
-    TableFu reads in an open CSV file, parsing it 
+
+    TableFu reads in an open CSV file, parsing it
     into a table property, Row and Datum objects.
-    
+
     Usage:
-    
+
     # test.csv
-    
+
     Author,Best Book,Number of Pages,Style
     Samuel Beckett,Malone Muert,120,Modernism
     James Joyce,Ulysses,644,Modernism
     Nicholson Baker,Mezannine,150,Minimalism
     Vladimir Sorokin,The Queue,263,Satire
-    
+
     >>> spreadsheet = TableFu(open('../tests/test.csv'))
     >>> len(spreadsheet.rows)
     4
@@ -41,7 +41,7 @@ class TableFu(object):
     >>> spreadsheet.columns = ['Style', 'Author']
     >>> spreadsheet.columms
     ['Style', 'Author']
-    
+
     """
     def __init__(self, table, **options):
         """
@@ -82,7 +82,7 @@ class TableFu(object):
         Return one row in the table
         """
         return Row(self.table[row_num], row_num, self)
-    
+
     def __iter__(self):
         return iter(self.rows)
 
@@ -92,34 +92,34 @@ class TableFu(object):
     def add_rows(self, *rows):
         for row in rows:
             self.table.append(row)
-    
+
     def count(self):
         return len(self)
-    
+
     @property
     def rows(self):
         return [Row(row, i, self) for i, row in enumerate(self.table)]
-    
+
     @property
     def headers(self):
         if self._columns:
             return [Header(col, i, self) for i, col in enumerate(self._columns)]
         else:
             return [Header(col, i, self) for i, col in enumerate(self.default_columns)]
-    
+
     def _get_columns(self):
         if self._columns:
             return self._columns
         return self.default_columns
-    
+
     def _set_columns(self, columns):
         self._columns = self.options['columns'] = list(columns)
-    
+
     columns = property(_get_columns, _set_columns)
-    
+
     def delete_row(self, row_num):
         self.deleted_rows.append(self.table.rows.pop(row_num))
-    
+
     def sort(self, column_name=None, reverse=False):
         """
         Sort rows in this table, preserving a record of how that
@@ -132,13 +132,13 @@ class TableFu(object):
         index = self.default_columns.index(column_name)
         self.table.sort(key = lambda row: row[index], reverse=reverse)
         self.options['sorted_by'] = {column_name: {'reverse': reverse}}
-    
+
     def values(self, column_name):
         if column_name not in self.default_columns:
             raise ValueError("%s isn't a column in this table" % column_name)
         index = self.default_columns.index(column_name)
         return [row[index] for row in self.table]
-    
+
     def total(self, column_name):
         if column_name not in self.default_columns:
             raise ValueError("%s isn't a column in this table" % column_name)
@@ -147,19 +147,19 @@ class TableFu(object):
         except ValueError:
             raise ValueError('Column %s contains non-numeric values' % column_name)
         return sum(values)
-    
+
     def html(self):
         table = '<table>\n%s\n%s\n</table>'
         thead = '<thead>\n<tr>%s</tr>\n</thead>' % ''.join(['<th>%s</th>' % col for col in self.columns])
         tbody = '<tbody>\n%s\n</tbody>' % '\n'.join([row.as_tr() for row in self.rows])
         return table % (thead, tbody)
-    
+
     def filter(self, func=None, **query):
         """
         Tables can be filtered in one of two ways:
          - Simple keyword arguments return rows where values match *exactly*
          - Pass in a function and return rows where that function evaluates to True
-        
+
         In either case, a new TableFu instance is returned
         """
         if callable(func):
@@ -206,10 +206,10 @@ class TableFu(object):
         sort the table by with the jQuery tablesorter plugin.
 
         Tablesorter docs:
-            An array of instructions for per-column sorting and direction in the 
-            format: [[columnIndex, sortDirection], ... ] where columnIndex is a 
-            zero-based index for your columns left-to-right and sortDirection is 
-            0 for Ascending and 1 for Descending. A valid argument that sorts 
+            An array of instructions for per-column sorting and direction in the
+            format: [[columnIndex, sortDirection], ... ] where columnIndex is a
+            zero-based index for your columns left-to-right and sortDirection is
+            0 for Ascending and 1 for Descending. A valid argument that sorts
             ascending first by column 1 and then column 2 looks like: [[0,0],[1,0]]
 
         Source:
@@ -229,7 +229,7 @@ class TableFu(object):
             sort_direction = 0
         # Then nest that in a list to the tablesorter standard
         return [[column_index, sort_direction]]
-    
+
     def get_sorter_config(self):
         """
         Prepare the parser config for usage in tablesorter's initilization.
@@ -240,7 +240,7 @@ class TableFu(object):
             js_dict[col_list.index(key)] = value
         return js_dict
     sorter_config = property(get_sorter_config)
-    
+
     @property
     def total_pages(self):
         """
@@ -249,7 +249,7 @@ class TableFu(object):
         """
         row_count = len(self.rows)
         return int(math.ceil(row_count / float(self.per_page)))
-    
+
     @property
     def page_size_list(self):
         """
@@ -285,12 +285,12 @@ class Row(object):
 
     def __len__(self):
         return len(self.cells)
-    
+
     def update(self, d):
         "Update multiple cell values in place"
         for k, v in d.items():
             self[k] = v
-    
+
     def get(self, column_name, default=None):
         """
         Return the Datum for column_name, or default.
@@ -299,13 +299,13 @@ class Row(object):
             index = self.table.default_columns.index(column_name)
             return Datum(self.cells[index], self.row_num, column_name, self.table)
         return default
-    
+
     def keys(self):
         return self.table.columns
-    
+
     def values(self):
         return [d.value for d in self.data]
-    
+
     def items(self):
         return zip(self.keys(), self.values())
 
@@ -316,7 +316,7 @@ class Row(object):
             raise KeyError("%s isn't a column in this table" % column_name)
         else:
             return datum
-    
+
     def __setitem__(self, column_name, value):
         """
         Set the value for a given cell
@@ -325,14 +325,14 @@ class Row(object):
             raise KeyError("%s isn't a column in this table" % column_name)
         index = self.table.default_columns.index(column_name)
         self.cells[index] = value
-    
+
     def __iter__(self):
         """
         Iterate over values, *not keys*. Keys are accessible
         as Row.table.columns or Row.keys()
         """
         return iter(self.values())
-    
+
     def __repr__(self):
         return "<%s: %s>" % (self.__class__.__name__, self.__str__())
 
@@ -341,11 +341,11 @@ class Row(object):
         column_list = map(unicode, column_list)
         column_list = [i.encode("utf-8") for i in column_list]
         return ', '.join(column_list)
-    
+
     def as_tr(self):
         cells = ''.join([d.as_td() for d in self.data])
         return '<tr id="row%s" class="row %s">%s</tr>' % (self.row_num, odd_even(self.row_num), cells)
-        
+
     @property
     def data(self):
         return [self[col] for col in self.table.columns]
@@ -363,7 +363,7 @@ class Datum(object):
 
     def __repr__(self):
         return "<%s: %s>" % (self.column_name, self.value)
-        
+
     def __str__(self):
         """
         Calling str(datum) should check first for a formatted
@@ -379,16 +379,16 @@ class Datum(object):
                 args = [row[arg].value for arg in args]
                 return format(self.value, func, *args, **kwargs)
         return self.value.encode('utf-8')
-    
+
     def __eq__(self, other):
         if type(other) == type(self):
             return self.value == other.value
         else:
             return self.value == other
-    
+
     def as_td(self):
         return '<td class="datum">%s</td>' % self.__str__()
-    
+
     def _get_style(self):
         try:
             return self.table.style[self.column_name]
@@ -408,10 +408,10 @@ class Header(object):
 
     def __repr__(self):
         return "<Header: %s>" % (self.name)
-        
+
     def __str__(self):
         return self.name.encode('utf-8')
-    
+
     def _get_style(self):
         style = ""
         try:
@@ -427,7 +427,7 @@ class Header(object):
         else:
             return None
     style = property(_get_style)
-    
+
     def get_sorter(self):
         """
         Returns the sorter to be used in tablesorter initialization.
@@ -437,7 +437,7 @@ class Header(object):
         except:
             return None
     sorter = property(get_sorter)
-    
+
     def sortable(self):
         """
         Indicates whether it is allowed to sort. Returns True or False.
@@ -451,7 +451,7 @@ class Header(object):
         except KeyError:
             return True
     sortable = property(sortable)
-    
+
     def as_th(self):
         return '<th class="header" style="%s">%s</th>' % (self.style or '', self.__str__())
 
