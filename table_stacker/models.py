@@ -35,6 +35,7 @@ class Table(models.Model):
     sources = models.TextField(blank=True)
     facebook_share_html = models.TextField(blank=True)
     twitter_share_html = models.TextField(blank=True)
+    embed_share_html = models.TextField(blank=True)
     credits = models.TextField(blank=True)
     show_download_links = models.BooleanField(default=True)
     show_search_field = models.BooleanField(default=True)

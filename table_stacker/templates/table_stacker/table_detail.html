@@ -43,8 +43,8 @@
             </div>
             <div class="text collapse">
                 <p><span class="credits">Produced by {{ object.credits|safe }}</span> | <span class="pubdate">Updated {{ object.publication_date|date:"N j, Y" }}</span></p>
-                <p>{{ object.description|safe }}</p>
-                <p><strong>About this database: </strong>{{ object.content_explainer|safe }}</p>
+                {{ object.description|safe }}
+                {{ object.content_explainer|safe }}
             </div>
             <div class="about collapse">
                 <p><strong>Source(s): </strong>{{ object.sources|safe }}. <strong>Built using</strong> <a href="https://github.com/datadesk/latimes-table-stacker" target="_blank">Table Stacker</a>, a <a href="https://www.djangoproject.com/" target="_blank">Django</a> application that publishes spreadsheets, <a href="http://handlebarsjs.com/">handlebars.js</a> &amp; <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>.</p>
@@ -52,7 +52,7 @@
             <div class="buttons btn-group btn-group-justified">
                 <a class="btn btn-primary" href="javascript:void(0)" data-toggle="collapse" data-target=".text"><span class="text glyphicon glyphicon-chevron-down"></span>  About</a>
                 <a class="btn btn-primary" href="javascript:void(0)" data-toggle="collapse" data-target=".about"><span class="about glyphicon glyphicon-chevron-down"></span>  Sources</a>
-                <a class="btn btn-primary" href="{{ object.read_more|safe }}" target="_blank"><span class="glyphicon glyphicon-link"></span> Read more</a>
+                {% if object.read_more %}<a class="btn btn-primary" href="{{ object.read_more|safe }}" target="_blank"><span class="glyphicon glyphicon-link"></span> Read more</a>{% endif %}
             </div>
         </div>
     </div>

@@ -95,10 +95,12 @@
                                     </div>
                                     <b>Share this</b>
                                 </li>
-                                <li class="projects-embed">
-                                    <a href="javascript:void(0)" class="embed-this icon" onclick="initializeTemplates.renderEmbedBox()">Embed This</a>
-                                    <a href="javascript:void(0)" target="_blank" onclick="initializeTemplates.renderEmbedBox()"><b>Embed This</b></a>
-                                </li>
+                                {% if embed_share_html %}
+                                    <li class="projects-embed">
+                                        <a href="javascript:void(0)" class="embed-this icon" onclick="initializeTemplates.renderEmbedBox()">Embed This</a>
+                                        <a href="javascript:void(0)" target="_blank" onclick="initializeTemplates.renderEmbedBox()"><b>Embed This</b></a>
+                                    </li>
+                                {% endif %}
                                 <li class="projects-home">
                                     <a href="http://projects.scpr.org/" class="projects-home icon">Projects Home</a>
                                     <a href="http://projects.scpr.org/"><b>All Projects</b></a>
