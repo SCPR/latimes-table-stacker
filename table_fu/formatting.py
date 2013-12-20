@@ -3,13 +3,14 @@ Utilities to format values into more meaningful strings.
 Inspired by James Bennett's template_utils and Django's
 template filters.
 """
-import re
+import re, logging
 from datetime import datetime
 from toolbox import statestyle
 from toolbox.dateutil.parser import parse as dateparse
 from django.template.defaultfilters import date as dateformater
 from django.template.defaultfilters import capfirst as djcapfirst
 
+logging.basicConfig(format='\033[1;36m%(levelname)s:\033[0;37m %(message)s', level=logging.DEBUG)
 
 def _saferound(value, decimal_places):
     """
@@ -177,10 +178,11 @@ def image(value, width='', height=''):
 def link(title, url):
     """
     Wrap the text in a hyperlink, if the link exists.
-    """
+   """
     if not url:
         return title
-    return '<a target="_blank" href="%(url)s" title="%(title)s">%(title)s</a>' % {'url': url, 'title': title}
+    else:
+        return '<a target="_blank" href="%(url)s" title="%(title)s">%(title)s</a>' % {'url': url, 'title': 'Details'}
 
 
 def percentage(value, decimal_places=1, multiply=True):
