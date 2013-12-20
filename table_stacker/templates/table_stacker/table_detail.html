@@ -6,182 +6,127 @@
     {% block description %}{{ object.description|striptags|safe }}{% endblock %}
 {% endif %}
 
-
 {% block facebook %}
     {{ block.super }}
-    <meta property="og:type" content="article"/>
-    <meta property="og:image" content="http://www.scpr.org/assets/logo-masthead.png" />
-    <meta property="og:title" content="{{ object.title|safe }}"/>
-    <meta property="og:url" content="{{ object.get_absolute_url }}"/>
+    <meta property="og:title" content="{{ object.title|safe }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="http://www.scpr.org/assets/kpcc-twitter-logo-f43790c570b1b6c6890ce868e0c654b8.png" />
+    <meta property="og:image:width" content="500" />
+    <meta property="og:image:height" content="500" />
+    <meta property="og:url" content="{{ object.get_absolute_url }}" />
     {% if object.description %}
         <meta property="og:description" content="{{ object.description|striptags|safe }}"/>
     {% endif %}
 {% endblock %}
 
-{% block extra-css %}
-{% endblock %}
-
-{% block extra-js %}
-    <script src='http://projects.scpr.org/static/static-files/scripts/jquery.tablesorter.js' type='text/javascript'></script>
-    <script src='http://projects.scpr.org/static/static-files/scripts/jquery.tablesorter.pager.js' type='text/javascript'></script>
-    <script src='http://projects.scpr.org/static/static-files/scripts/jquery.tablesorter.multipagefilter.js' type='text/javascript'></script>
-    <script type="text/javascript">
-        /* For picking out bits from the query string */
-        var getParameterByName = function(name) {
-          name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
-          var regexS = "[\\?&]" + name + "=([^&#]*)";
-          var regex = new RegExp(regexS);
-          var results = regex.exec(window.location.href);
-          if(results == null)
-            return "";
-          else
-            return decodeURIComponent(results[1].replace(/\+/g, " "));
-        };
-    </script>
-{% endblock %}
-
-{% block kpcc-header %}
-    <header>
-        <div class="container-fluid">
-            <div class="row-fluid">
-
-            <!-- begin header logo -->
-            <div class="span6">
-                <h3 id="site-title" ><a href="http://www.scpr.org/">KPCC 89.3</a></h3>
-            </div>
-            <!-- end header logo -->
-
-            <!-- begin share functions -->
-            <div class="span6 header-links-row">
-                <ul class="header-links clearfix pull-right">
-                    <li>
-                    <a href="https://scprcontribute.publicradio.org/" class="pledge-now icon">Contribute to KPCC</a>
-                    <a href="https://scprcontribute.publicradio.org/" target="_blank"><b>Pledge now</b></a>
-                    </li>
-                    <li>
-                    <div class="share-links clearfix">
-                    <script>function fbs_click() {u=location.href;t=document.title;window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');return false;}</script>
-                    <a class="facebook icon" href="https://www.facebook.com/sharer/sharer.php?u={{ object.facebook_share_html|safe }}" onClick="return fbs_click()" target="_blank" title="Share This on Facebook"></a>
-                    <a class="twitter icon" href="http://twitter.com/share?{{ object.twitter_share_html|safe }}" target="_blank"></a>
-                    </div>
-                    <b>Share this page</b>
-                    </li>
-                    <li>
-                        <a href="http://projects.scpr.org/" class="projects-home icon">Projects Home</a>
-                        <a href="http://projects.scpr.org/"><b>All Projects</b></a>
-                    </li>
-                </ul>
-            </div>
-            <!-- end share functions -->
-
-            </div>
-        </div>
-    </header>
-{% endblock %}
-
-{% block headline %}
-<div id="content-article">
-    <h4 class="kicker">
-        {% if object.kicker %}{{ object.kicker|safe }}{% else %}Spreadsheet{% endif %}
-    </h4>
-    <h1>{{ object.title|safe }}</h1>
-
-    {% if object.credits %}
-        <div id="content-article-metadata">
-            <p><span class="credits">{{ object.credits|safe }}</span> | <span class="pubdate">Updated {{ object.publication_date|date:"N j, Y" }}</span></p>
-        </div>
-    {% endif %}
-
+{% block twitter %}
+    {{ block.super }}
+    <meta name="twitter:title" content="{{ object.title|safe }}">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:domain" content="http://projects.scpr.org/">
+    <meta name="twitter:site" content="KPCC">
+    <meta name="twitter:image:src" content="http://www.scpr.org/assets/kpcc-twitter-logo-f43790c570b1b6c6890ce868e0c654b8.png">
+    <meta name="twitter:url" content="{{ object.get_absolute_url }}">
     {% if object.description %}
-    <div id="content-article-text">
-        <p>{{ object.description|safe }}</p>
-    </div>
+        <meta property="twitter:description" content="{{ object.description|striptags|safe }}"/>
     {% endif %}
+{% endblock %}
 
-    {% if object.read_more %}
-        <div id="content-article-buttons">
-            <a class="btn btn-info" href="{{ object.read_more|safe }}" target="_blank">Read More</a>
+{% block extra-css %}{% endblock %}
+
+{% block data-details %}
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div id="content-article">
+            <div class="headlines">
+                <h4 class="kicker">{% if object.kicker %}{{ object.kicker|safe }}{% else %}Spreadsheet{% endif %}</h4>
+                <h1>{{ object.title|safe }}</h1>
+            </div>
+            <div class="text collapse">
+                <p><span class="credits">Produced by {{ object.credits|safe }}</span> | <span class="pubdate">Updated {{ object.publication_date|date:"N j, Y" }}</span></p>
+                <p>{{ object.description|safe }}</p>
+                <p><strong>About this database: </strong>{{ object.content_explainer|safe }}</p>
+            </div>
+            <div class="about collapse">
+                <p><strong>Source(s): </strong>{{ object.sources|safe }}. <strong>Built using</strong> <a href="https://github.com/datadesk/latimes-table-stacker" target="_blank">Table Stacker</a>, a <a href="https://www.djangoproject.com/" target="_blank">Django</a> application that publishes spreadsheets, <a href="http://handlebarsjs.com/">handlebars.js</a> &amp; <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>.</p>
+            </div>
+            <div class="buttons btn-group btn-group-justified">
+                <a class="btn btn-primary" href="javascript:void(0)" data-toggle="collapse" data-target=".text"><span class="text glyphicon glyphicon-chevron-down"></span>  About</a>
+                <a class="btn btn-primary" href="javascript:void(0)" data-toggle="collapse" data-target=".about"><span class="about glyphicon glyphicon-chevron-down"></span>  Sources</a>
+                <a class="btn btn-primary" href="{{ object.read_more|safe }}" target="_blank"><span class="glyphicon glyphicon-link"></span> Read more</a>
+            </div>
         </div>
-    {% endif %}
-
-</div>
-<hr />
+    </div>
 {% endblock %}
 
 {% block content %}
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div id="table_fu">
 
-<div id="content-explainer">
-    <p><span class="data-instructions"><strong>About this database: </strong>{{ object.content_explainer|safe }}</p>
-</div>
-
-<!-- begin table fu -->
-<div id="table_fu">
-
-    {% if object.legend %}
-        <div id="legend">{{ object.legend|safe }}</div>
-    {% endif %}
-
-    <!-- begin display ribbon -->
-    <div id="ribbon">
-        <div id="download">
-            <div id="pubdate"></div>
-
-            {% if object.show_download_links %}
-                <strong>Download the data: </strong>
-                <a href="{{ object.get_csv_url }}">CSV</a> |
-                <a href="{{ object.get_xls_url }}">XLS</a> |
-                <a target="_blank" href="{{ object.get_json_url }}">JSON</a>
+            {% if object.legend %}
+                <div id="legend">{{ object.legend|safe }}</div>
             {% endif %}
 
-        </div>
-        <div id="controls">
-            <div id="filter" >Search (by any term): <input type="text"></div>
+            <!-- begin display ribbon -->
+            <div id="ribbon">
+                <div id="download">
+                    <div id="pubdate"></div>
 
-            <!-- <div id="pager" class="pager"> -->
-            <div id="pager">
-                <form class="form-inline" {% ifequal table.total_pages 1 %}style="display:none !important;"{% endifequal %}>
-                    <img src="http://projects.scpr.org/static/static-files/images/tablestacker-tables/first.png" class="first">
-                    <img src="http://projects.scpr.org/static/static-files/images/tablestacker-tables/prev.png" class="prev">
-                    <span class="pagedisplay"/>1/{{ table.total_pages }}</span>
-                    <img src="http://projects.scpr.org/static/static-files/images/tablestacker-tables/next.png" class="next">
-                    <img src="http://projects.scpr.org/static/static-files/images/tablestacker-tables/last.png" class="last">
-                    <select class="pagesize">
-                    {% for page_size in table.page_size_list %}
-                    <option {% if forloop.first %}selected="selected"{% endif %} value="{{ page_size }}">{{ page_size }}</option>
-                    {% endfor %}
-                    </select> per page
-                </form>
+                    {% if object.show_download_links %}
+                        <strong>Download the data: </strong>
+                        <a href="{{ object.get_csv_url }}">CSV</a> |
+                        <a href="{{ object.get_xls_url }}">XLS</a> |
+                        <a target="_blank" href="{{ object.get_json_url }}">JSON</a>
+                    {% endif %}
+
+                </div>
+                <div id="controls">
+                    <div id="filter" >Search (by any term): <input type="text"></div>
+
+                    <!-- <div id="pager" class="pager"> -->
+                    <div id="pager">
+                        <form class="form-inline" role="form" {% ifequal table.total_pages 1 %}style="display:none !important;"{% endifequal %}>
+                            <img src="http://projects.scpr.org/static/static-files/images/tablestacker-tables/first.png" class="first">
+                            <img src="http://projects.scpr.org/static/static-files/images/tablestacker-tables/prev.png" class="prev">
+                            <span class="pagedisplay"/>1/{{ table.total_pages }}</span>
+                            <img src="http://projects.scpr.org/static/static-files/images/tablestacker-tables/next.png" class="next">
+                            <img src="http://projects.scpr.org/static/static-files/images/tablestacker-tables/last.png" class="last">
+                            <select class="pagesize form-control">
+                            {% for page_size in table.page_size_list %}
+                            <option {% if forloop.first %}selected="selected"{% endif %} value="{{ page_size }}">{{ page_size }}</option>
+                            {% endfor %}
+                            </select> per page
+                        </form>
+                    </div>
+                </div>
             </div>
+            <!-- end display ribbon -->
+
+            <div class="clear"></div>
+
+            <table id="data" class="tabular table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        {% for header in table.headers %}
+                            <th style="cursor: pointer; {% if header.style %}{% if header.sortable %}cursor: pointer;{% else %}cursor:default; background:none;{% endif %} {{ header.style }}{% endif %}">
+                                {{ header }}
+                            </th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in table.rows %}
+                        <tr>
+                            {% for column in row.data %}
+                                <td style="{{ column.style }}">{{ column|safe }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                </tfoot>
+            </table>
         </div>
     </div>
-    <!-- end display ribbon -->
-
-    <div class="clear"></div>
-
-    <table id="data" class="responsive tabular table table-striped table-bordered">
-        <thead>
-            <tr>
-                {% for header in table.headers %}
-                    <th style="cursor: pointer; {% if header.style %}{% if header.sortable %}cursor: pointer;{% else %}cursor:default; background:none;{% endif %} {{ header.style }}{% endif %}">
-                        {{ header }}
-                    </th>
-                {% endfor %}
-            </tr>
-        </thead>
-        <tbody>
-            {% for row in table.rows %}
-                <tr>
-                    {% for column in row.data %}
-                        <td style="{{ column.style }}">{{ column|safe }}</td>
-                    {% endfor %}
-                </tr>
-            {% endfor %}
-        </tbody>
-        <tfoot>
-        </tfoot>
-    </table>
-
-</div>
 <!-- end table fu -->
 
 <script type="text/javascript">
@@ -209,44 +154,25 @@
             newSort = [[urlSortColumn, urlSortOrder]];
             $("table").trigger("sorton", [newSort]);
         };
+
+        function toggleDisplayIcon(){
+            jqueryNoConflict('.text').on('shown.bs.collapse', function(){
+                jqueryNoConflict('span.text').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+            });
+            jqueryNoConflict('.text').on('hidden.bs.collapse', function(){
+                jqueryNoConflict('span.text').addClass('glyphicon-chevron-down').removeClass('glyphicon-chevron-up');
+            });
+            jqueryNoConflict('.about').on('shown.bs.collapse', function(){
+                jqueryNoConflict('span.about').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+            });
+            jqueryNoConflict('.about').on('hidden.bs.collapse', function(){
+                jqueryNoConflict('span.about').addClass('glyphicon-chevron-down').removeClass('glyphicon-chevron-up');
+            });
+        };
     });
 </script>
 {% endblock %}
 
-{% block footer %}
-
-{% if object.show_embed_button %}
-    <!-- thanks for setting the standard Mr. John Keefe -->
-    <div id="embed-this">
-        <p class="hidden-tablet hidden-phone"><span class="btn btn-warning" style="cursor:pointer;" onclick="embedBox()">Embed This</p>
-    </div>
-{% endif %}
-
-{% if object.sources %}
-    <div id="sources">
-        <p class="normal-display"><strong>Sources: </strong>{{ object.sources|safe }}</p>
-    </div>
-{% endif %}
-
-    <div id="open-source">
-        <p class="small-display">Built using <a href="https://github.com/datadesk/latimes-table-stacker" target="_blank">Table Stacker</a>, a <a href="https://www.djangoproject.com/" target="_blank">Django</a> application that publishes spreadsheets, and <a href="http://handlebarsjs.com/">handlebars.js</a></p>
-    </div>
-
-{% endblock %}
-
 {% block kpcc-footer %}
-<footer>
-    <div class="container-fluid">
-        <div class="row-fluid">
-            <div class="span12">
-                <ul>
-                    <li><a href="http://scpr.org/terms/">Terms &amp; Conditions</a></li>
-                    <li><a href="http://scpr.org/privacy/">Privacy</a></li>
-                    <li><a href="http://scpr.org/web_site_feedback">Website Feedback</a></li>
-                    <li>Copyright 2012 &copy; Southern California Public Radio</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</footer>
+
 {% endblock %}
