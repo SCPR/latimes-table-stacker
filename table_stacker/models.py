@@ -17,9 +17,11 @@ class Table(models.Model):
     """
     # The source
     csv_name = models.CharField(max_length=100)
+
     # The config
     yaml_name = models.CharField(max_length=100)
     yaml_data = models.TextField(blank=True)
+
     # The goodies
     title = models.CharField(max_length=500)
     slug = models.SlugField()
@@ -36,9 +38,11 @@ class Table(models.Model):
     facebook_share_html = models.TextField(blank=True)
     twitter_share_html = models.TextField(blank=True)
     embed_share_html = models.TextField(blank=True)
+    open_about_this = models.BooleanField(default=True)
     credits = models.TextField(blank=True)
     show_download_links = models.BooleanField(default=True)
     show_search_field = models.BooleanField(default=True)
+
     # The meta
     is_published = models.BooleanField()
     show_in_feeds = models.BooleanField(default=True)

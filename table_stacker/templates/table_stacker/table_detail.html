@@ -130,9 +130,15 @@
 <!-- end table fu -->
 
 <script type="text/javascript">
+
     var sortOrder = {{ table.sorted_by }};
     var perPage = {{ table.per_page }};
     $(document).ready(function(){
+
+        {% if object.open_about_this %}
+            $('.text').collapse('show');
+        {% endif %}
+
         var fu = $('#table_fu');
         var table = window.table = $('#data', fu)
           .tablesorter({
@@ -156,17 +162,18 @@
         };
 
         function toggleDisplayIcon(){
-            jqueryNoConflict('.text').on('shown.bs.collapse', function(){
-                jqueryNoConflict('span.text').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+
+            $('.text').on('shown.bs.collapse', function(){
+                $('span.text').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
             });
-            jqueryNoConflict('.text').on('hidden.bs.collapse', function(){
-                jqueryNoConflict('span.text').addClass('glyphicon-chevron-down').removeClass('glyphicon-chevron-up');
+            $('.text').on('hidden.bs.collapse', function(){
+                $('span.text').addClass('glyphicon-chevron-down').removeClass('glyphicon-chevron-up');
             });
-            jqueryNoConflict('.about').on('shown.bs.collapse', function(){
-                jqueryNoConflict('span.about').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+            $('.about').on('shown.bs.collapse', function(){
+                $('span.about').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
             });
-            jqueryNoConflict('.about').on('hidden.bs.collapse', function(){
-                jqueryNoConflict('span.about').addClass('glyphicon-chevron-down').removeClass('glyphicon-chevron-up');
+            $('.about').on('hidden.bs.collapse', function(){
+                $('span.about').addClass('glyphicon-chevron-down').removeClass('glyphicon-chevron-up');
             });
         };
     });
