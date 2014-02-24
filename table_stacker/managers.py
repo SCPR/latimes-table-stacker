@@ -32,23 +32,26 @@ class TableManager(models.Manager):
             obj.yaml_data=str(yaml_data)
             obj.title=yaml_data['title']
             obj.slug=yaml_data.get("slug", yaml_data['yaml_name'])
+            obj.description=yaml_data.get('description', '')
+            obj.keywords=yaml_data.get('keywords', '')
+            obj.project_directory=yaml_data.get('project_directory', '')
+            obj.twitter_share_text=yaml_data.get('twitter_share_text', '')
+            obj.allow_others_embed=yaml_data.get("allow_others_embed", False)
+            obj.open_about_this_onload=yaml_data.get("open_about_this_onload", False)
             obj.kicker=yaml_data.get('kicker', '')
             obj.byline=yaml_data.get("byline", '')
+            obj.credits=yaml_data.get('credits', '')
+            obj.content_explainer=yaml_data.get('content_explainer', '')
+            obj.publication_message=yaml_data['publication_message']
             obj.publication_date=yaml_data['publication_date']
             obj.publication_time=yaml_data.get("publication_time", None)
-            obj.legend=yaml_data.get('legend', '')
-            obj.description=yaml_data.get('description', '')
-            obj.content_explainer=yaml_data.get('content_explainer', '')
-            obj.footer=yaml_data.get('footer', '')
-            obj.read_more=yaml_data.get('read_more', '')
             obj.sources=yaml_data.get('sources', '')
-            obj.facebook_share_html=yaml_data.get('facebook_share_html', '')
-            obj.twitter_share_html=yaml_data.get('twitter_share_html', '')
-            obj.credits=yaml_data.get('credits', '')
+            obj.read_more_link=yaml_data.get('read_more_link', '')
+            obj.footer=yaml_data.get('footer', '')
             obj.is_published=yaml_data.get('is_published', False)
             obj.show_download_links=yaml_data.get("show_download_links", True)
-            obj.show_search_field=yaml_data.get("show_search_field", True)
             obj.show_in_feeds=yaml_data.get("show_in_feeds", True)
+            obj.show_search_field=yaml_data.get("show_search_field", True)
             created = False
         else:
             obj = self.create(
@@ -57,28 +60,30 @@ class TableManager(models.Manager):
                 yaml_data=str(yaml_data),
                 title=yaml_data['title'],
                 slug=yaml_data.get("slug", yaml_data['yaml_name']),
-                kicker=yaml_data.get("kicker", ""),
-                byline=yaml_data.get("byline", ""),
+                description=yaml_data.get('description', ''),
+                keywords=yaml_data.get('keywords', ''),
+                project_directory=yaml_data.get('project_directory', ''),
+                twitter_share_text=yaml_data.get('twitter_share_text', ''),
+                allow_others_embed=yaml_data.get("allow_others_embed", False),
+                open_about_this_onload=yaml_data.get("open_about_this_onload", False),
+                kicker=yaml_data.get('kicker', ''),
+                byline=yaml_data.get("byline", ''),
+                credits=yaml_data.get('credits', ''),
+                content_explainer=yaml_data.get('content_explainer', ''),
+                publication_message=yaml_data['publication_message'],
                 publication_date=yaml_data['publication_date'],
                 publication_time=yaml_data.get("publication_time", None),
-                legend=yaml_data.get('legend', ''),
-                description=yaml_data.get('description', ''),
-                content_explainer=yaml_data.get('content_explainer', ''),
-                footer=yaml_data.get('footer', ''),
-                read_more=yaml_data.get('read_more', ''),
                 sources=yaml_data.get('sources', ''),
-                facebook_share_html=yaml_data.get('facebook_share_html', ''),
-                twitter_share_html=yaml_data.get('twitter_share_html', ''),
-                credits=yaml_data.get('credits', ''),
+                read_more_link=yaml_data.get('read_more_link', ''),
+                footer=yaml_data.get('footer', ''),
                 is_published=yaml_data.get('is_published', False),
                 show_download_links=yaml_data.get("show_download_links", True),
-                show_search_field=yaml_data.get("show_search_field", True),
                 show_in_feeds=yaml_data.get("show_in_feeds", True),
+                show_search_field=yaml_data.get("show_search_field", True),
             )
             created = True
         obj.save()
         return obj, created
-
 
 class TableLiveManager(models.Manager):
     """
@@ -87,7 +92,3 @@ class TableLiveManager(models.Manager):
     def get_query_set(self):
         qs = super(TableLiveManager, self).get_query_set()
         return qs.filter(is_published=True, show_in_feeds=True)
-
-
-
-

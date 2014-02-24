@@ -6,6 +6,10 @@
     {% block description %}{{ object.description|striptags|safe }}{% endblock %}
 {% endif %}
 
+{% if object.keywords %}
+    {% block keywords %}{{ object.keywords|striptags|safe }}{% endblock %}
+{% endif %}
+
 {% block facebook %}
     {{ block.super }}
     <meta property="og:title" content="{{ object.title|safe }}" />
@@ -43,8 +47,10 @@
             </div>
             <div class="text collapse">
                 <p><span class="credits">Produced by {{ object.credits|safe }}</span> | <span class="pubdate">Updated {{ object.publication_date|date:"N j, Y" }}</span></p>
-                {{ object.description|safe }}
-                {{ object.content_explainer|safe }}
+                <p>{{ object.description|safe }}</p>
+                {% if object.content_explainer %}
+                    <p class="small-writing">{{ object.content_explainer|safe }}</p>
+                {% endif %}
             </div>
             <div class="about collapse">
                 <p><strong>Source(s): </strong>{{ object.sources|safe }}. <strong>Built using</strong> <a href="https://github.com/datadesk/latimes-table-stacker" target="_blank">Table Stacker</a>, a <a href="https://www.djangoproject.com/" target="_blank">Django</a> application that publishes spreadsheets, <a href="http://handlebarsjs.com/">handlebars.js</a> &amp; <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>.</p>
@@ -52,7 +58,7 @@
             <div class="buttons btn-group btn-group-justified">
                 <a class="btn btn-primary" href="javascript:void(0)" data-toggle="collapse" data-target=".text"><span class="text glyphicon glyphicon-chevron-down"></span>  About</a>
                 <a class="btn btn-primary" href="javascript:void(0)" data-toggle="collapse" data-target=".about"><span class="about glyphicon glyphicon-chevron-down"></span>  Sources</a>
-                {% if object.read_more %}<a class="btn btn-primary" href="{{ object.read_more|safe }}" target="_blank"><span class="glyphicon glyphicon-link"></span> Read more</a>{% endif %}
+                {% if object.read_more_link %}<a class="btn btn-primary" href="{{ object.read_more_link|safe }}" target="_blank"><span class="glyphicon glyphicon-link"></span> Read more</a>{% endif %}
             </div>
         </div>
     </div>
@@ -130,15 +136,11 @@
 <!-- end table fu -->
 
 <script type="text/javascript">
-
     var sortOrder = {{ table.sorted_by }};
     var perPage = {{ table.per_page }};
+    var embed_url_root = '{{ object.project_directory }}';
+
     $(document).ready(function(){
-
-        {% if object.open_about_this %}
-            $('.text').collapse('show');
-        {% endif %}
-
         var fu = $('#table_fu');
         var table = window.table = $('#data', fu)
           .tablesorter({
@@ -161,25 +163,32 @@
             $("table").trigger("sorton", [newSort]);
         };
 
-        function toggleDisplayIcon(){
-
-            $('.text').on('shown.bs.collapse', function(){
-                $('span.text').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
-            });
-            $('.text').on('hidden.bs.collapse', function(){
-                $('span.text').addClass('glyphicon-chevron-down').removeClass('glyphicon-chevron-up');
-            });
-            $('.about').on('shown.bs.collapse', function(){
-                $('span.about').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
-            });
-            $('.about').on('hidden.bs.collapse', function(){
-                $('span.about').addClass('glyphicon-chevron-down').removeClass('glyphicon-chevron-up');
-            });
+        renderEmbedBox = function(){
+            jAlert('<h4>Embed this on your site or blog</h4>' + '<span>Copy this code and paste to source of your page. You may need to adjust the height parameter. <br /><br /> &lt;iframe src=\"'+ embed_url_root +'\" width=\"100%\" height=\"850px\" style=\"margin: 0 auto;\" frameborder=\"no\"&gt;&lt;/iframe>', 'Share or Embed');
         };
+
+        {% if object.open_about_this_onload %}
+            $('.text').collapse('show');
+        {% endif %}
+
+        {% if object.allow_others_embed %}
+            $('li.projects-embed').addClass('hidden');
+        {% endif %}
+
+        $('.text').on('shown.bs.collapse', function(){
+            $('span.text').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+        });
+        $('.text').on('hidden.bs.collapse', function(){
+            $('span.text').addClass('glyphicon-chevron-down').removeClass('glyphicon-chevron-up');
+        });
+        $('.about').on('shown.bs.collapse', function(){
+            $('span.about').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+        });
+        $('.about').on('hidden.bs.collapse', function(){
+            $('span.about').addClass('glyphicon-chevron-down').removeClass('glyphicon-chevron-up');
+        });
     });
 </script>
 {% endblock %}
 
-{% block kpcc-footer %}
-
-{% endblock %}
+{% block kpcc-footer %}{% endblock %}

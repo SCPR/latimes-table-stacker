@@ -1,63 +1,72 @@
 table:
-  title: A look at California interstate bus companies
-  file: bus_company_watch_list.csv
-  slug: bus_company_watch_list
-  kicker: Database
-  footer: "<p></p>"
-  byline: Chris Keller
-  description: '<p>When it comes to the agency responsible for regulating and inspecting bus lines, shuttles and motor coaches, a distinction is made between an intrastate carrier and an interstate carrier.</p><p>Those that never leave the state of California are known as intrastate carriers and are regulated by the <a href="http://www.cpuc.ca.gov/puc/">California Public Utilities Commission</a> (PUC).</p><p>Those that transport passengers to and from destinations outside the state are known as interstate carriers and are regulated by the the Department of Transportation&#39;s <a href="http://www.fmcsa.dot.gov/safety-security/PCS/Consumers.aspx">Federal Motor Carrier Safety Administration</a>, which provides details for 370 of these companies.</p><p>According that data, <a href="http://ai.fmcsa.dot.gov/PassengerSearch/SearchResults.aspx?LocationCode=2&amp;amp;LocationValue=CA&amp;amp;VehicleType=Motorcoach&amp;amp;keyword=&amp;amp;Submit=Find+Carriers">54 of the 370</a> -- about 19 percent -- have racked up enough safety violations to appear on a "watchlist" kept by the Federal Motor Carrier Safety Administration.</p><p>An appearance on this watchlist means the carrier has been prioritized for further monitoring by regulators. This could mean increased inspections, and occurs when a carrier is over the intervention threshold based on inspection scores, or because a serious violation was found during an inspection or investigation.</p><p>The table below shows the 370 California interstate carriers broken down by three <strong>"Carrier Status"</strong> categories. Those prioritized for further monitoring carry the <strong>"Further Monitoring"</strong> designation in addition to the reason for the designation in the <strong>Watchlist Reason</strong> column.</p><p><strong>"Violation"</strong> denotes "a serious violation cited within last 12 months from an investigation." <strong>"Alert"</strong> denotes the carrier may be prioritized for an intervention action and roadside inspection.</p>'
-  content_explainer: '<p>In the table you will also find the following:</p><ul><li>In the <strong>"Carrier Status"</strong> column <strong>See BASIC Link</strong> refers to how a carrier has performed on the Behavior Analysis and Safety Improvement Categories system.</li><li>In the <strong>"Carrier Status"</strong> column <strong>Insufficient</strong> means a given company may not have sufficient inspections or violations to generate an evaluation for a specific BASIC category, and thus does not indicate poor safety fitness. To see a further explanation of the BASIC ratings or a carrier&#39;s Safety and Fitness Electronic Records profile, click on the respective links.</li><li>In the <strong>"Allowed to Operate"</strong> column, a <strong>"No"</strong> designation will appear if the Federal Motor Carrier Safety Administration has declared a carrier unfit for transporting passengers.</li></ul></p>'
-  column_options:
-    columns:
-      - Carrier Name
-      - Carrier Location
-      - Carrier Status
-      - Allowed to Operate
-      - Watchlist Reason
-      - Fleet Size
-      - BASIC Status
-      - SAFER Details
-    style:
-      Carrier Name: 'width: 20%;'
-      Carrier Location: 'width: 20%;'
-      Carrier Status: 'width: 10%;'
-      Allowed to Operate: 'width: 5%;'
-      Watchlist Reason: 'width: 20%;'
-      Fleet Size: 'width: 5%;'
-      BASIC Status: 'width: 10%;'
-      SAFER Details: 'width: 10%;'
-    sorted_by:
-      - Carrier Status: ascending
-    formatting:
-      Carrier Name:
-        method: title
-      Carrier Location:
-        method: title
-      Carrier Status:
-        method: title
-      Allowed to Operate:
-        method: title
-      Watchlist Reason:
-        method: title
-      Fleet Size:
-        method: intcomma
-      BASIC Status:
-        method: link
-        arguments:
-            - BASIC Status
-      SAFER Details:
-        method: link
-        arguments:
-            - SAFER Details
-    per_page: 30
-  is_published: true
-  publication_date: 2014-1-24
-  publication_time: "10:00:00"
-  sources: U.S. Department of Transportation <a href="http://www.fmcsa.dot.gov/safety-security/PCS/Consumers.aspx" target="_blank">Federal Motor Carrier Safety Administration</a>
-  credits: '<a href="http://www.scpr.org/about/people/staff/chris-keller">Chris Keller</a>'
-  show_download_links: false
-  show_in_feeds: true
-  facebook_share_html: 'http%3A%2F%2Fprojects.scpr.org%2Fstatic%2Fdatabases%2Fcalifornia-motor-carriers%2F'
-  twitter_share_html: 'text=Search details of California commercial bus companies&amp;url=http://projects.scpr.org/static/databases/california-motor-carriers/'
-  embed_share_html: 'http://projects.scpr.org/static/databases/california-motor-carriers/'
-  open_about_this: true
+    # required setup
+    file: bus_company_watch_list.csv
+    slug: bus_company_watch_list
+
+    # metadata and configuration
+    description: '<p>When it comes to the agency responsible for regulating and inspecting bus lines, shuttles and motor coaches, a distinction is made between an intrastate carrier and an interstate carrier.</p><p>Those that never leave the state of California are known as intrastate carriers and are regulated by the <a href="http://www.cpuc.ca.gov/puc/">California Public Utilities Commission</a> (PUC).</p><p>Those that transport passengers to and from destinations outside the state are known as interstate carriers and are regulated by the the Department of Transportation&#39;s <a href="http://www.fmcsa.dot.gov/safety-security/PCS/Consumers.aspx">Federal Motor Carrier Safety Administration</a>, which provides details for 370 of these companies.</p><p>According that data, <a href="http://ai.fmcsa.dot.gov/PassengerSearch/SearchResults.aspx?LocationCode=2&amp;amp;LocationValue=CA&amp;amp;VehicleType=Motorcoach&amp;amp;keyword=&amp;amp;Submit=Find+Carriers">54 of the 370</a> -- about 19 percent -- have racked up enough safety violations to appear on a "watchlist" kept by the Federal Motor Carrier Safety Administration.</p><p>An appearance on this watchlist means the carrier has been prioritized for further monitoring by regulators. This could mean increased inspections, and occurs when a carrier is over the intervention threshold based on inspection scores, or because a serious violation was found during an inspection or investigation.</p><p>The table below shows the 370 California interstate carriers broken down by three <strong>"Carrier Status"</strong> categories. Those prioritized for further monitoring carry the <strong>"Further Monitoring"</strong> designation in addition to the reason for the designation in the <strong>Watchlist Reason</strong> column.</p><p><strong>"Violation"</strong> denotes "a serious violation cited within last 12 months from an investigation." <strong>"Alert"</strong> denotes the carrier may be prioritized for an intervention action and roadside inspection.</p>'
+    project_directory: 'http://projects.scpr.org/static/databases/california-motor-carriers/'
+    twitter_share_text: 'Search details of California commercial bus companies'
+    allow_others_embed: true
+    open_about_this_onload: false
+
+    # public facing content
+    kicker: Database
+    title: A look at California interstate bus companies
+    byline: Chris Keller
+    credits: '<a href="http://www.scpr.org/about/people/staff/chris-keller">Chris Keller</a>'
+    content_explainer: '<p>In the table you will also find the following:</p><ul><li>In the <strong>"Carrier Status"</strong> column <strong>See BASIC Link</strong> refers to how a carrier has performed on the Behavior Analysis and Safety Improvement Categories system.</li><li>In the <strong>"Carrier Status"</strong> column <strong>Insufficient</strong> means a given company may not have sufficient inspections or violations to generate an evaluation for a specific BASIC category, and thus does not indicate poor safety fitness. To see a further explanation of the BASIC ratings or a carrier&#39;s Safety and Fitness Electronic Records profile, click on the respective links.</li><li>In the <strong>"Allowed to Operate"</strong> column, a <strong>"No"</strong> designation will appear if the Federal Motor Carrier Safety Administration has declared a carrier unfit for transporting passengers.</li></ul></p>'
+    publication_message: 'Published'
+    publication_date: 2013-9-16
+    publication_time: "12:00:00"
+    sources: U.S. Department of Transportation <a href="http://www.fmcsa.dot.gov/safety-security/PCS/Consumers.aspx" target="_blank">Federal Motor Carrier Safety Administration</a>
+    read_more_link: ''
+    footer: '<p></p>'
+
+    # table configuration
+    column_options:
+        columns:
+          - Carrier Name
+          - Carrier Location
+          - Carrier Status
+          - Allowed to Operate
+          - Watchlist Reason
+          - Fleet Size
+          - BASIC Status
+          - SAFER Details
+        style:
+          Carrier Name: 'width: 20%;'
+          Carrier Location: 'width: 20%;'
+          Carrier Status: 'width: 10%;'
+          Allowed to Operate: 'width: 5%;'
+          Watchlist Reason: 'width: 20%;'
+          Fleet Size: 'width: 5%;'
+          BASIC Status: 'width: 10%;'
+          SAFER Details: 'width: 10%;'
+        sorted_by:
+          - Carrier Status: ascending
+        formatting:
+          Carrier Name:
+            method: title
+          Carrier Location:
+            method: title
+          Carrier Status:
+            method: title
+          Allowed to Operate:
+            method: title
+          Watchlist Reason:
+            method: title
+          Fleet Size:
+            method: intcomma
+          BASIC Status:
+            method: link
+            arguments:
+                - BASIC Status
+          SAFER Details:
+            method: link
+            arguments:
+                - SAFER Details
+        per_page: 30
+    is_published: true
+    show_download_links: false
+    show_in_feeds: true

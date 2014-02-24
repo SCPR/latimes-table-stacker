@@ -1,12 +1,30 @@
 table:
-  title: Candidates for Southern California congressional seats
+  # required setup
   file: congressional_candidates_2014.csv
   slug: congressional_candidates_2014
-  kicker: Database
-  footer: "<p></p>"
-  byline: Chris Keller
+
+  # metadata and configuration
   description: '<p>Candidates for Californias Congressional seats have until March 7 to circulate nominating papers and file a declaration of candidacy.</p><p>Below is a list of those who have declared their intent to run for Congressional seats in Southern California districts.'
+  keywords: 'California, Congressional delegation, 2014 mid-term elections'
+  project_directory: 'http://projects.scpr.org/static/databases/2014-congressional-candidates'
+  twitter_share_text: 'See who has declared as a candidate for Southern California Congressional seats'
+  allow_others_embed: false
+  open_about_this_onload: true
+
+  # public facing content
+  kicker: Politics
+  title: Candidates for Southern California congressional seats
+  byline: Kitty Felde and Chris Keller
+  credits: '<a href="http://www.scpr.org/about/people/staff/kitty-felde">Kitty Felde</a> &amp; <a href="http://www.scpr.org/about/people/staff/chris-keller">Chris Keller</a>'
   content_explainer: '<p></p>'
+  publication_message: 'Published'
+  publication_date: 2014-2-24
+  publication_time: '10:00:00'
+  sources: KPCC staff reports
+  read_more_link: ''
+  footer: '<p></p>'
+
+  # table configuration
   column_options:
     columns:
       - District
@@ -35,13 +53,5 @@ table:
         method: title
     per_page: 60
   is_published: true
-  publication_date: 2014-2-24
-  publication_time: "10:00:00"
-  sources: KPCC staff reports
-  credits: '<a href="http://www.scpr.org/about/people/staff/kitty-felde">Kitty Felde</a> &amp; <a href="http://www.scpr.org/about/people/staff/chris-keller">Chris Keller</a>'
   show_download_links: false
   show_in_feeds: true
-  facebook_share_html: 'http%3A%2F%2Fprojects.scpr.org%2Fstatic%2Fdatabases%2F2014-congressional-candidates'
-  twitter_share_html: 'text=See who has declared as a candidate for Southern California Congressional seats&amp;url=http%3A%2F%2Fprojects.scpr.org%2Fstatic%2Fdatabases%2F2014-congressional-candidates'
-  embed_share_html: 'http://projects.scpr.org/static/databases/2014-congressional-candidates'
-  open_about_this: true

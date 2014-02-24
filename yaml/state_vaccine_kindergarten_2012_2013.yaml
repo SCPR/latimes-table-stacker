@@ -1,20 +1,30 @@
 table:
-    title: Search kindergarten immunization levels in Los Angeles, Orange, Riverside, San Bernardino and Ventura counties
+    # required setup
     file: state_vaccine_kindergarten_2012_2013.csv
     slug: state_vaccine_kindergarten_2012_2013
-    kicker: Database
-    footer: "<p></p>"
-    byline: Chris Keller
+
+    # metadata and configuration
     description: "A parent-led movement to stop vaccinations is showing up in schools. While public schools require children to have up-to-date vaccines before a child can enroll, parents have the option of waiving the shots if they conflict with their religious beliefs. Children with medical conditions sometimes get waivers as well. In some schools in Southern California, the Personal Belief Exemptions make up a majority of incoming kindergartners. That means most kids at the school have not been vaccinated – and that worries public health experts. This user-friendly database shows 2012-13 vaccination exemption rates at schools in Los Angeles, Orange, Riverside, San Bernardino and Ventura counties based on data from the California Department of Public Health."
+    keywords: 'California, California Department of Public Health, vaccinations'
+    project_directory: 'http://projects.scpr.org/static/databases/2012-2013-kindergarten-immunizations'
+    twitter_share_text: 'This user-friendly database shows 2012-13 vaccination exemption rates at schools in Los Angeles, Orange, Riverside, San Bernardino and Ventura counties based on data from the California Department of Public Health'
+    allow_others_embed: true
+    open_about_this_onload: false
+
+    # public facing content
+    kicker: Database
+    title: Search kindergarten immunization levels in Los Angeles, Orange, Riverside, San Bernardino and Ventura counties
+    byline: Chris Keller
+    credits: '<a href="http://www.scpr.org/about/people/staff/evelyn-larrubia">Evelyn Larrubia</a> &amp; <a href="http://www.scpr.org/about/people/staff/chris-keller">Chris Keller</a>'
     content_explainer: "The database below shows the number of 2012-2013 kindergarten students enrolled in schools in Los Angeles, Orange, Riverside, San Bernardino and Ventura counties based on data from the California Department of Public Health, the number of students who are up to date with their vaccinations, the number of students that received a permanent medical exemption (PME) and the number of students that have signed a personal belief exemption (PBE) on record with the school."
+    publication_message: 'Published'
     publication_date: 2013-9-16
     publication_time: "12:00:00"
-    read_more: ''
-    facebook_share_html: 'http://projects.scpr.org/static/databases/2012-2013-kindergarten-immunizations'
-    twitter_share_html: 'http://projects.scpr.org/static/databases/2012-2013-kindergarten-immunizations'
     sources: '<a href="http://www.cdph.ca.gov/programs/immunize/Pages/ImmunizationLevels.aspx" target="_blank">California Department of Public Health</a>'
-    credits: '<a href="http://www.scpr.org/about/people/staff/evelyn-larrubia">Evelyn Larrubia</a> &amp; <a href="http://www.scpr.org/about/people/staff/chris-keller">Chris Keller</a>'
-    show_embed_button: false
+    read_more_link: ''
+    footer: '<p></p>'
+
+    # table configuration
     column_options:
         columns:
           - school_name

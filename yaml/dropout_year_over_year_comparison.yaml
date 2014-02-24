@@ -1,20 +1,30 @@
 table:
-    title: Compare dropout rates among local school districts
+    # required setup
     file: dropout_year_over_year_comparison.csv
     slug: dropout_year_over_year_comparison
-    kicker: Database
-    footer: "<p></p>"
-    byline: Chris Keller
+
+    # metadata and configuration
     description: "A slightly smaller percentage of California students dropped out of high school last year than during the 2010-2011 school year -- 4% vs 4.2% -- according to data released by the California Department of Education on Tuesday. School districts in Los Angeles and San Bernardino counties performed percentage points worse than the state average. Those in Orange County, Riverside and Ventura performed above the state average. Dropout rates are worse among Hispanic and African American students than their white and Asian peers. How is your child's school district performing? Find it in the chart below."
+    keywords: 'California, California Department of Education'
+    project_directory: 'http://projects.scpr.org/static/databases/school-district-dropout-rates/'
+    twitter_share_text: 'A slightly smaller percentage of Calif students dropped out of high school last year than during the 2010-2011'
+    allow_others_embed: true
+    open_about_this_onload: false
+
+    # public facing content
+    kicker: Database
+    title: Compare dropout rates among local school districts
+    byline: Chris Keller
+    credits: '<a href="http://www.scpr.org/about/people/staff/chris-keller" target="_blank">Chris Keller</a> &amp; <a href="http://www.scpr.org/about/people/staff/evelyn-larrubia" target="_blank">Evelyn Larrubia</a>'
     content_explainer: "This database shows the number of dropouts during the 2011-2012 school year by ethnicity -- Hispanic, Asian, African-American &amp; White -- and the percentage change from the prior year -- increase or decrease -- as recorded by school districts in Los Angeles, Orange, Riverside, San Bernardino and Ventura counties and reported to the state Department of Education."
+    publication_message: 'Published'
     publication_date: 2013-4-9
     publication_time: "12:30:00"
-    read_more: 'http://www.scpr.org/blogs/education/2013/04/09/13234/california-high-school-graduation-rate-creeps-up-t/'
-    facebook_share_html: 'http%3A%2F%2Fpr ojects.scpr.org%2Fstatic%2Fdatabases%2Fschool-district-dropout-rates%2F'
-    twitter_share_html: 'text=A slightly smaller percentage of Calif students dropped out of high school last year than during the 2010-2011&url=http://projects.scpr.org/static/databases/school-district-dropout-rates/'
     sources: '<a href="http://dq.cde.ca.gov/dataquest/" target="_blank">California Department of Education</a>'
-    credits: '<a href="http://www.scpr.org/about/people/staff/chris-keller" target="_blank">Chris Keller</a> &amp; <a href="http://www.scpr.org/about/people/staff/evelyn-larrubia" target="_blank">Evelyn Larrubia</a>'
-    show_embed_button: false
+    read_more_link: 'http://www.scpr.org/blogs/education/2013/04/09/13234/california-high-school-graduation-rate-creeps-up-t/'
+    footer: '<p></p>'
+
+    # table configuration
     column_options:
         columns:
             - District

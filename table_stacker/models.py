@@ -10,42 +10,46 @@ from django.utils import simplejson
 from django.contrib.sites.models import Site
 from managers import TableLiveManager, TableManager
 
-
 class Table(models.Model):
     """
     Ready-to-serve CSV data.
     """
-    # The source
-    csv_name = models.CharField(max_length=100)
 
     # The config
     yaml_name = models.CharField(max_length=100)
     yaml_data = models.TextField(blank=True)
 
-    # The goodies
-    title = models.CharField(max_length=500)
+    # required setup
+    csv_name = models.CharField(max_length=100)
     slug = models.SlugField()
-    kicker = models.CharField(max_length=500, blank=True)
-    byline = models.CharField(max_length=500, blank=True)
+
+    # metadata and configuration
+    description = models.TextField(blank=True, null=True)
+    keywords = models.TextField(blank=True, null=True)
+    project_directory = models.TextField(blank=True)
+    twitter_share_text = models.TextField(blank=True, null=True)
+    allow_others_embed = models.BooleanField(default=True)
+    open_about_this_onload = models.BooleanField(default=True)
+
+    # public facing content
+    kicker = models.CharField(max_length=500, blank=True, null=True)
+    title = models.CharField(max_length=500)
+    byline = models.CharField(max_length=500, blank=True, null=True)
+    credits = models.TextField(blank=True, null=True)
+    content_explainer = models.TextField(blank=True, null=True)
+    publication_message = models.TextField(blank=True, null=True)
     publication_date = models.DateField()
     publication_time = models.TimeField(blank=True, null=True)
-    description = models.TextField(blank=True)
-    content_explainer = models.TextField(blank=True)
-    legend = models.CharField(max_length=500, blank=True)
-    footer = models.TextField(blank=True)
-    read_more = models.TextField(blank=True)
-    sources = models.TextField(blank=True)
-    facebook_share_html = models.TextField(blank=True)
-    twitter_share_html = models.TextField(blank=True)
-    embed_share_html = models.TextField(blank=True)
-    open_about_this = models.BooleanField(default=True)
-    credits = models.TextField(blank=True)
+    sources = models.TextField(blank=True, null=True)
+    read_more_link = models.TextField(blank=True, null=True)
+    footer = models.TextField(blank=True, null=True)
+
+    # table configuration
+    is_published = models.BooleanField()
     show_download_links = models.BooleanField(default=True)
+    show_in_feeds = models.BooleanField(default=True)
     show_search_field = models.BooleanField(default=True)
 
-    # The meta
-    is_published = models.BooleanField()
-    show_in_feeds = models.BooleanField(default=True)
     objects = TableManager()
     live = TableLiveManager()
 
@@ -107,4 +111,3 @@ class Table(models.Model):
                 self.publication_time
             )
     publication_datetime = property(get_publication_datetime)
-

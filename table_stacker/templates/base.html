@@ -18,7 +18,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
         <meta name="robots" content="" />
         <meta name="description" content="{% block description %}{% endblock %}" >
-        <meta name="keywords" content="{% block keywords %}tablstacker{% endblock %}" >
+        <meta name="keywords" content="{% block keywords %}{% endblock %}" >
         {% block facebook %}{% endblock %}
         {% block twitter %}{% endblock %}
         <!-- end meta -->
@@ -41,9 +41,8 @@
 
         <!-- begin base scripts -->
         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-        <script src="http://use.typekit.com/mhc7oxs.js"></script>
+        <script type="text/javascript" src="//use.typekit.net/air8rql.js"></script>
         <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-        <script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
         <script src='http://projects.scpr.org/static/static-files/scripts/jquery.tablesorter.js' type='text/javascript'></script>
         <script src='http://projects.scpr.org/static/static-files/scripts/jquery.tablesorter.pager.js' type='text/javascript'></script>
         <script src='http://projects.scpr.org/static/static-files/scripts/jquery.tablesorter.multipagefilter.js' type='text/javascript'></script>
@@ -91,16 +90,14 @@
                                     <div class="share-links clearfix">
                                         <script>function fbs_click() {u=location.href;t=document.title;window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');return false;}</script>
                                             <a class="facebook icon" href="https://www.facebook.com/sharer/sharer.php?u={{ object.facebook_share_html|safe }}" onClick="return fbs_click()" target="_blank" title="Share This on Facebook"></a>
-                                            <a class="twitter icon" href="http://twitter.com/share?{{ object.twitter_share_html|safe }}"></a>
+                                            <a class="twitter icon" href="http://twitter.com/share?text={{ object.twitter_share_text }}&amp;url={{ object.project_directory }}"></a>
                                     </div>
                                     <b>Share this</b>
                                 </li>
-                                {% if object.embed_share_html %}
-                                    <li class="projects-embed">
-                                        <a href="javascript:void(0)" class="embed-this icon" onclick="initializeTemplates.renderEmbedBox()">Embed This</a>
-                                        <a href="javascript:void(0)" target="_blank" onclick="initializeTemplates.renderEmbedBox()"><b>Embed This</b></a>
-                                    </li>
-                                {% endif %}
+                                <li class="projects-embed">
+                                    <a href="javascript:void(0)" class="embed-this icon" onclick="renderEmbedBox()">Embed This</a>
+                                    <a href="javascript:void(0)" target="_blank" onclick="renderEmbedBox()"><b>Embed This</b></a>
+                                </li>
                                 <li class="projects-home">
                                     <a href="http://projects.scpr.org/" class="projects-home icon">Projects Home</a>
                                     <a href="http://projects.scpr.org/"><b>All Projects</b></a>
