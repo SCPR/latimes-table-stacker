@@ -1,49 +1,130 @@
 District,Name,Party,Status,About
-10,Jeff Denham,R,incumbent,Elected to Congress in 2010. Former state senator and almond rancher. Serves on Transportation and Veterans Affairs Committees.
-21,David Valadao,R,incumbent,Elected to Congress in 2012. Serves on House Appropriations Committee. Dairy farmer.
-22,Devin Nunes,R,incumbent,Elected to Congress in 2012. Serves on House Intelligence and Ways and Means Committees.
-23,Kevin McCarthy,R,incumbent,First elected to Congress in 2006; serving as Majority Whip since 2011. Former top GOP state assemblyman.
-25,Steve Knight,R,challenger,State Senator from Palmdale. Former LAPD officer.
-25,"Jorge Ricardo ""J.R."" Puentes Jr.",D,challenger,Former Army medic.
-25,Lee Rogers,D,challenger,Simi Valley podiatrist. Ran against Buck McKeon in 2012.
-25,Tony Strickland,R,challenger,Former state senator. Ran unsuccessfully against Julia Brownley in neighboring 26th district in 2012.
-25,Evan Thomas,D,challenger,Air Force veteran.
-27,Judy Chu,D,incumbent,"Elected to Congress in a 2009 special election to fill the seat of Hilda Solis, the first Asian-American woman elected to Congress; served in state assembly and on CA Board of Equalization. She serves on Judiciary and Small Business Committees."
-28,Adam Schiff,D,incumbent,"Elected to Congress in 2000, former federal prosecutor. Serves on Appropriations and Intelligence Committees."
-29,Tony Cardenas,D,incumbent,"Elected to Congress in 2012, former LA City Councilman, state assemblyman. Serves on Budget, Oversight, and Natural Resources Committees."
-30,Brad Sherman,D,incumbent,Elected to Congress in 1997; serves on Foreign Affairs and Financial Services Committees.
-31,Pete Aguilar,D,challenger,Mayor of Redlands.
-31,Joe Baca,D,challenger,"Former Congressman from 2009-2012, defeated in 2012 by Gloria Negrete McLeod in redrawn 35th district."
-31,Elan Carr,R,challenger,"LA County Deputy District Attorney; leader with Alpha Epsilon Pi, a prominent international Jewish fraternity"
-31,Lesli Gooch,R,challenger,Former aide to Congressman Gary Miller; has his endorsement.
-31,Eloise Gomez Reyes,D,challenger,Attorney; backing of Emily's List.
-31, Danny Tillman,D,challenger,San Bernadino School Board member.
-32,Grace Napolitano,D,incumbent,Elected to Congress in 1998; serves on Natural Resources and Transportation Committees.
-33,Ted Lieu,D,challenger,"Ted W. Lieu is a Democratic Party California State Senator, who has represented the 28th Senate District since February 18, 2011, after being elected to fill the seat of deceased Senator Jenny Oropeza."
-33,Wendy Greuel,D,challenger,Wendy Greuel is the former L.A. City Controller and lost to Eric Garcetti in the 2013 Los Angeles Mayoral election.
-33,Matt Miller,D,challenger,"Host of KCRW's political radio show ""Left, Right, and Center"" "
-33,Brent Roske,I,challenger,"Producer of web series about running for Congress ""Chasing the Hill."""
-33,Marianne Williamson,I,challenger,"Marianne Williamson is a spiritual teacher, writer, and lecturer. She founded Project Angel Food, a meals-on-wheels program that serves homebound people with AIDS in the LA area. "
-34,Xavier Becerra,D,incumbent,"Elected to Congress in 1992; number 3 Democrat in the House, serving as chairman of Democratic Caucus. Serves on Ways and Means Committee."
-35,Paul VIncent Avila,D,challenger,Ontario City Councilman
-35,Christina Gagnier,D,challenger,"Intellectual property attorney and CEO of REALPOLITECH, a political technology startup."
-35,Scott Matthew Heydenfeldt,,challenger,
-35,Norma Torres,D,challenger,State senator serving Pomona.
-35,Anthony Vieyra,Green,challenger,Former IRS employee.
-37,Karen Bass,D,incumbent,Elected to Congress in 2010; serves on Foreign Affairs and Judiciary Committees.
-38,Linda Sanchez,D,incumbent,"Elected to Congress in 2002; ranking member on House Ethics Committee, also serves on Ways and Means and Judiciary. She's a former labor lawyer."
-39,Ed Royce,R,incumbent,Elected to Congress in 1992; chairman of House Foreign Affairs Committee.
-40,Lucille Roybal-Allard,D,incumbent,"Elected to Congress in 1992, the first Mexican American woman to do so. Serves on House Appropriations Committee. Daughter of the late Ed Roybal, the first Mexican-American elected to Congress."
-41,Mark Takano,D,incumbent,Elected in 2012; former high school English teacher. Former president of Riverside Community College District's Board of Trustees.
-42,Ken Calvert,R,incumbent,"First elected to Congress in 1992, serves on Natural Resources and Science Committee."
-43,Maxine Waters,D,incumbent,Elected to Congress in 1990; top Democrat on House Financial Services Committee.
-44,Janice Hahn,D,incumbent,"Elected in a 2011 special election to replace Jane Harman, who left to head the Wilson Center. Former LA City Councilwoman, daughter of late LA County Supervisor Kenneth Hahn and sister of former LA Mayor Jim Hahn."
-45,Pat Maciariello,R,challenger,"Laguna Hills businessman; National Republican Congressional Committee added Maciariello to their ""On the Radar"" list in November 2013. "
-45,John Moorlach,R,challenger,Orange County Supervisor; former OC Treasurer-Tax Collector.
-45,Greg Raths,R,challenger,"Retired Marine colonel; Chief of Staff for the White House Military Office from 1996 to 1999, liaison between the Pentagon and White House."
-45,Mimi Walters,R,challenger,"State senator; National Republican Congressional Committee added Walters to their ""On the Radar"" list in November 2013."
-46,Loretta Sanchez,D,incumbent,Elected to Congress in 1996; serves on Armed Services and Homeland Security Committees.
-47,Alan Lowenthal,D,incumbent,Elected to Congress in 2012; former state assemblyman and senator; taught psychology at CSULB. Serves on Foreign Affairs and Natural Resources Committees.
-48,Dana Rohrabacher,R,incumbent,"Elected to Congress in 1988, a former speechwriter to President Reagan. Serves on House Foreign Affairs and Science Committees."
-49,Darrell Issa,R,incumbent,"Elected to Congress in 2000; chairman of House Oversight and Government Reform Committee, serves on Judiciary. Founded nation's largest car alarm company. Architect of 1993 recall of Governor Davis."
-36,Raul Ruiz,D,incumbent,Emergency room physician elected to Congress in 2012.
+8,Bob Conaway,not specified,challenger,Lists occupation as a consumer advocate.
+8,Odessia D Lee ,not specified,challenger,Lists occupation as a retired public employee.
+8,Paul Hannosh,not specified,challenger,Lists occupation as a teacher.
+8,Rodney Lee Conover,not specified,challenger,Lists occupation as a writer/broadcaster.
+8,Paul Cook,Republican,incumbent,
+10,Jeff Denham,Republican,incumbent,Elected to Congress in 2010. Former state senator and almond rancher. Serves on Transportation and Veterans Affairs Committees.
+21,David Valadao,Republican,incumbent,Elected to Congress in 2012. Serves on House Appropriations Committee. Dairy farmer.
+22,Devin Nunes,Republican,incumbent,Elected to Congress in 2012. Serves on House Intelligence and Ways and Means Committees.
+23,Kevin McCarthy,Republican,incumbent,First elected to Congress in 2006; serving as Majority Whip since 2011. Former top GOP state assemblyman.
+25,Evan Thomas,Democrat,challenger,Air Force veteran.
+25,Navraj Singh,Republican,candidate for open seat,Business Owner from Porter Ranch running as a Republican
+25,David Koster Bruce,Libertarian,candidate for open seat,Business Owner from Stevenson Ranch running as a Libertarian
+25,"Jorge Ricardo ""J.R."" Puentes Jr.",Democrat,candidate for open seat,Former Army medic.
+25,Tony Strickland,Republican,candidate for open seat,Former state senator. Ran unsuccessfully against Julia Brownley in neighboring 26th district in 2012.
+25,Lee Rogers,Democrat,candidate for open seat,Simi Valley podiatrist. Ran against Buck McKeon in 2012.
+25,Steve Knight,Republican,candidate for open seat,State senator from Palmdale. Former LAPD officer.
+25,Troy Castagna,Republican,candidate for open seat,Taxpayer Advocate from Valencia running as a Republican
+25,"Evan ""Ivan"" Thomas",Democrat,candidate for open seat,Test Pilot/Educator from Lancaster running as a Democrat
+26,Douglas William Kmiec,not specified,challenger,Lists residence as Malibu
+27,Judy Chu,Democrat,incumbent,"Elected to Congress in a 2009 special election to fill the seat of Hilda Solis, the first Asian-American woman elected to Congress; served in state assembly and on CA Board of Equalization. She serves on Judiciary and Small Business Committees."
+27,Jack Orswell,Republican,challenger,Lists occupation as small business owner. From Monrovia. Running as a Republican.
+28,Adam Schiff,Democrat,incumbent,"Elected to Congress in 2000, former federal prosecutor. Serves on Appropriations and Intelligence Committees."
+28,Marvin Elton Owen,Republican,challenger,Lists residence as La Crescenta. Running as a Republican candidate.
+28,Sal Genovese,Democrat,challenger,Lists occupation as community services director. From Los Angeles. Running as a Democrat.
+28,Steve Stokes,None,challenger,Lists occupation as real estate broker. From Los Angeles. Running without a party affiliation.
+29,Tony Cardenas,Democrat,incumbent,"Elected to Congress in 2012, former LA City Councilman, state assemblyman. Serves on Budget, Oversight, and Natural Resources Committees."
+29,Walter Alexander Escobar,Democrat,challenger,Lists residence as Panorama City. Running as a Democrat.
+29,Venice J. Gamble,Democrat,challenger,Lists occupation as consumer advocate paralegal. From Reseda. Running as a Democrat.
+29,William O' Callaghan Leader,Republican,challenger,Lists occupation as small businessman. From North Hollywood. Running as a Republican.
+30,Brad Sherman,Democrat,incumbent,Elected to Congress in 1997; serves on Foreign Affairs and Financial Services Committees.
+30,Luke Davis,Democrat,challenger,Lists residence as Granada Hills. Running as a Democrat.
+30,Mark S. Reed,Republican,challenger,Lists occupation as businessman/producer/rancher. From Sunland. Running as a Republican.
+30,Michael W. Powelson,Green,challenger,Lists occupation as college professor. From Sherman Oaks. Running as a Green Party candidate.
+30,Douglas William Kmiec,None,challenger,Lists occupation as pepperdine university school of law. From Malibu. Running without a party affiliation.
+30,Marc Litchman,Democrat,challenger,Lists occupation as school trust executive. From Studio City. Running as a Democrat.
+30,Pablo Kleinman,Republican,challenger,Lists occupation as television journalist/businessman. From Sherman Oaks. Running as a Republican.
+31,Eloise Gomez Reyes,Democrat,candidate for open seat,Attorney; backing of Emily's List.
+31,Lesli Gooch,Republican,candidate for open seat,Former aide to Congressman Gary Miller; has his endorsement.
+31,Joe Baca,Democrat,candidate for open seat,"Former Congressman from 2009-2012, defeated in 2012 by Gloria Negrete McLeod in redrawn 35th district."
+31,Elan Carr,Republican,candidate for open seat,"LA County Deputy District Attorney; leader with Alpha Epsilon Pi, a prominent international Jewish fraternity"
+31,Pete Aguilar,Democrat,candidate for open seat,Mayor of Redlands.
+31,Paul Chabot,not specified,candidate for open seat,Military Officer/Businessman
+31, Danny Tillman,Democrat,candidate for open seat,San Bernadino School Board member.
+32,Deborah Kay Behounek,Republican,challenger,Running as a Republican
+32,Grace Napolitano,Democrat,incumbent,Elected to Congress in 1998; serves on Natural Resources and Transportation Committees.
+32,Arturo Enrique Alas,Republican,challenger,Lists occupation as realtor. From Studio City. Running as a Republican.
+33,Karl Siganporia,Democrat,candidate for open seat,Lists residence as Fremont. Running as a Democrat
+33,Christopher David,Republican,candidate for open seat,Lists residence as  Los Angeles. Running as a Republican.
+33,Robert Baker,Democrat,candidate for open seat,Lists residence as Los Angeles. Running without a party affiliation.
+33,Sheldon (Shelly) Tobias,Democrat,candidate for open seat,Lists residence as Los Angeles. Running without a party affiliation.
+33,Matt Miller,Democrat,candidate for open seat,"Host of KCRW's political radio show ""Left, Right, and Center"" "
+33,Patrick Kilpatrick,Republican,candidate for open seat,Lists occupation as actor/director/producer. From Los Angeles. Running as a Republican.
+33,Elan Carr,Republican,candidate for open seat,Lists occupation as criminal gang prosecutor. From North Hollywood. Running as a Republican.
+33,David Kanuth,Democrat,candidate for open seat,Lists occupation as defense counsel/entrepreneur. From Los Angeles. Running as a Democrat.
+33,"Zein E. Obagi, Jr.",Democrat,candidate for open seat,Lists occupation as educational equality advocate. From Los Angeles. Running as a Democrat.
+33,Kevin Mottus,Republican,candidate for open seat,Lists occupation as environmental health advocate. From Los Angeles. Running as a Republican.
+33,Michael Ian Sachs,Green,candidate for open seat,Lists occupation as environmental technician. From Redondo Beach. Running as a Green Party candidate.
+33,Lily Gilani,Republican,candidate for open seat,Lists occupation as Harvard lawyer/ceo. From Los Angeles. Running as a Republican.
+33,Barbara L. Mulvaney,Democrat,candidate for open seat,Lists occupation as human rights attorney. From Venice. Running as a Democrat].
+33,James Graf,Democrat,candidate for open seat,Lists occupation as international businessman/entrepreneur. From Santa Monica. Running as a Democrat.
+33,Tom Fox,None,candidate for open seat,Lists occupation as lawyer. From Sherman Oaks. Running without a party affiliation.
+33,Mark Matthew Herd,Libertarian,candidate for open seat,Lists occupation as neighborhood council boardmember. From Los Angeles. Running as a Libertarian.
+33,Vince Flaherty,Democrat,candidate for open seat,Lists occupation as producer/entrepreneur/historian. From Pacific Palisades. Running as a Democrat.
+33,Charles Edward Lincoln Iii,None,candidate for open seat,Lists occupation as property/trust management. From Pasadena. Running without a party affiliation.
+33,Kristie Holmes,Democrat,candidate for open seat,Lists occupation as social worker/professor. From Los Angeles. Running as a Democrat.
+33,Michael Shapiro,Democrat,candidate for open seat,"Lists occupation as sports executive, filmmaker. From Los Angeles. Running as a Democrat."
+33,Marianne Williamson,None,candidate for open seat,"Marianne Williamson is a spiritual teacher, writer, and lecturer. She founded Project Angel Food, a meals-on-wheels program that serves homebound people with AIDS in the LA area. "
+33,Brent Roske,None,candidate for open seat,"Producer of web series about running for Congress ""Chasing the Hill."""
+33,Derrick Ferree,Democrat,candidate for open seat,Running as a Democrat.
+33,Ted Lieu,Democrat,candidate for open seat,"Ted W. Lieu is a Democratic Party California State Senator, who has represented the 28th Senate District since February 18, 2011, after being elected to fill the seat of deceased Senator Jenny Oropeza."
+33,Wendy Greuel,Democrat,candidate for open seat,Wendy Greuel is the former L.A. City Controller and lost to Eric Garcetti in the 2013 Los Angeles Mayoral election.
+34,Xavier Becerra,Democrat,incumbent,"Elected to Congress in 1992; number 3 Democrat in the House, serving as chairman of Democratic Caucus. Serves on Ways and Means Committee."
+34,Howard Johnson,Peace and Freedom,challenger,Lists occupation as attorney at law. From Los Angeles. Running as a Peace and Freedom candidate.
+34,Adrienne Nicole Edwards,Democrat,challenger,Lists occupation as community organizer. From Los Angeles. Running as a Democrat.
+34,Jonathan Turner Smith,None,challenger,Lists occupation as teacher. From Los Angeles. Running without a party affiliation.
+35,Scott Matthew Heydenfeldt,not specified,candidate for open seat,Entrepreneur/Community Leader
+35,Anthony Vieyra,Green,candidate for open seat,Former IRS employee.
+35,Christina Gagnier,Democrat,candidate for open seat,"Intellectual property attorney and CEO of REALPOLITECH, a political technology startup."
+35,Paul VIncent Avila,Democrat,candidate for open seat,Ontario City Councilman
+36,Brian Nestande,Republican,challenger,Current state representative. Running as a Republican.
+36,Raul Ruiz,Democrat,incumbent,Lists occupation as emergency room physician. Elected to Congress in 2012.
+36,Ray Haynes,Republican,challenger,Running as a Republican.
+37,Karen Bass,Democrat,incumbent,Elected to Congress in 2010; serves on Foreign Affairs and Judiciary Committees.
+37,David C. Crowley,Republican,challenger,Lists residence as Los Angeles. Running without a party affiliation.
+37,Mervin Evans,Democrat,challenger,Lists occupation as author/management consultant. From Los Angeles. Running as a Democrat.
+37,R. Adam King,Republican,challenger,Lists occupation as investor/lender/entrepreneur. From Los Angeles. Running as a Republican.
+38,Linda Sanchez,Democrat,incumbent,"Elected to Congress in 2002; ranking member on House Ethics Committee, also serves on Ways and Means and Judiciary. She's a former labor lawyer."
+38,Gus Summers,Republican,challenger,Lists residence as Los Angeles. Running as a Republican.
+38,Benjamin Campos,Republican,challenger,Lists occupation as certified public accountant. From Long Beach. Running as a Republican.
+39,Ed Royce,Republican,incumbent,Elected to Congress in 1992; chairman of House Foreign Affairs Committee.
+39,Peter O. Anderson,Democrat,challenger,Lists residence as Fullerton. Running as a Democrat.
+40,Lucille Roybal-Allard,Democrat,incumbent,"Elected to Congress in 1992, the first Mexican American woman to do so. Serves on House Appropriations Committee. Daughter of the late Ed Roybal, the first Mexican-American elected to Congress."
+40,David Sanchez,Democrat,challenger,Lists occupation as college professor. From Los Angeles. Running as a Democrat.
+41,Mark Takano,Democrat,incumbent,Elected in 2012; former high school English teacher. Former president of Riverside Community College District's Board of Trustees.
+41,Veronica Franco,Democrat,challenger,Lists occupation as healthcare administrator. Running as a Democrat.
+41,Yvonne Terrell Girard,Republican,challenger,Lists occupation as judicial assistant. Running as a Republican.
+41,Steve Adams,Republican,challenger,Lists occupation as Riverside City Councilman. Running as a Republican.
+42,Ken Calvert,Republican,incumbent,"First elected to Congress in 1992, serves on Natural Resources and Science Committee."
+42,Tim Sheridan,Democrat,challenger,National Field Representative
+42,Chris Marquez,Democrat,challenger,Retired Marine Sergeant
+42,Kerri Condley,Democrat,challenger,
+42,Robert Rand,None,challenger,
+43,Maxine Waters,Democrat,incumbent,Elected to Congress in 1990; top Democrat on House Financial Services Committee.
+43,Benjamin Miller,Democrat,challenger,Lists residence as Los Angeles. Running without a party affiliation.
+43,"John Wood, Jr.",Republican,challenger,Lists occupation as political writer/analyst. From Los Angeles. Running as a Republican.
+44,Janice Hahn,Democrat,incumbent,"Elected in a 2011 special election to replace Jane Harman, who left to head the Wilson Center. Former LA City Councilwoman, daughter of late LA County Supervisor Kenneth Hahn and sister of former LA Mayor Jim Hahn."
+44,Analilia Joya,Democrat,challenger,Lists occupation as teacher/disable advocate. From Los Angeles. Running as a Democrat.
+45,Pat Maciariello,Republican,candidate for open seat,"Laguna Hills businessman; National Republican Congressional Committee added Maciariello to their ""On the Radar"" list in November 2013. "
+45,Drew Leavens,Democrat,candidate for open seat,Lists occupation as an educator/businessman.
+45,Greg Raths,Republican,candidate for open seat,"Retired Marine colonel; Chief of Staff for the White House Military Office from 1996 to 1999, liaison between the Pentagon and White House."
+45,Mimi Walters,Republican,candidate for open seat,"State senator; National Republican Congressional Committee added Walters to their ""On the Radar"" list in November 2013."
+45,Al Sale-Hi,None,candidate for open seat,Trustee for the Buena Park Library District.
+46,Loretta Sanchez,Democrat,incumbent,Elected to Congress in 1996; serves on Armed Services and Homeland Security Committees.
+46,Adam Nick,Republican,challenger,Lists occupation as accountant/auditor/businessman. Running as a Republican.
+46,John J. Cullum,Republican,challenger,Lists occupation as business owner/accountant. Running as a Republican.
+46,Carlos Vazquez,Republican,challenger,Lists occupation as business owner/educator. Running as a Republican.
+46,Ehab Atalla,Democrat,challenger,Lists occupation as businessman/author/consultant. Running as a Democrat.
+47,Alan Lowenthal,Democrat,incumbent,Elected to Congress in 2012; former state assemblyman and senator; taught psychology at CSULB. Serves on Foreign Affairs and Natural Resources Committees.
+47,Andy Whallon,Republican,challenger,Lists occupation as engineer/entrepreneur. From Long Beach. Running as a Republican.
+48,Dana Rohrabacher,Republican,incumbent,"Elected to Congress in 1988, a former speechwriter to President Reagan. Serves on House Foreign Affairs and Science Committees."
+48,Suzanne Joyce Savary,Democrat,challenger,Lists occupation as Businessowner/Consultant/Educator. Running as a Democrat.
+48,Robert John Banuelos,not specified,challenger,Lists occupation as Congressional Community Liaison
+48,Wendy Brooks Leece,Republican,challenger,Lists occupation as Costa Mesa Councilmember/Educator. Running as a Republican.
+48,David Burns,Democrat,challenger,Lists occupation as Lawyer.  Running as a Democrat.
+49,Darrell Issa,Republican,incumbent,"Elected to Congress in 2000; chairman of House Oversight and Government Reform Committee, serves on Judiciary. Founded nation's largest car alarm company. Architect of 1993 recall of Governor Davis."
+49,David Peiser,Democrat,challenger,Lists occupation as a local business owner. Running as a Democrat.
+49,Noboru Isagawa,Democrat,challenger,Retired. Running as a Democrat.
+50,James H. Kimber,Democrat,challenger,
+50,Duncan Hunter,Republican,incumbent,

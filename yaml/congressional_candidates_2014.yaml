@@ -4,7 +4,7 @@ table:
   slug: congressional_candidates_2014
 
   # metadata and configuration
-  description: '<p>Candidates for Californias Congressional seats have until March 7 to circulate nominating papers and file a declaration of candidacy.</p><p>Below is a list of those who have declared their intent to run for Congressional seats in Southern California districts.'
+  description: '<p>Nominations for California&#39;s June 3 primary closed Tuesday. The field of candidates vying for congressional seats in Southern California districts is now clear.</p><p>Below is a list of those who filed the paperwork to run for Congressional districts in <a href="https://www.lavote.net/" target="blank">Los Angeles</a>, <a href="http://www.ocvote.com/" target="blank">Orange</a>, <a href="http://www.voteinfo.net/" target="blank">Riverside</a> and <a href="http://www.sbcountyelections.com/" target="blank">San Bernardino</a> counties in addition to their party affiliation and a brief bio &ndash; where applicable.</p><p>Six Southern California incumbents chose not to run in 2014, including veterans <a href="http://projects.scpr.org/static/applications/find-my-rep/#legislators/house/california/26734-george-miller" target="blank">George Miller</a> and <a href="http://projects.scpr.org/static/applications/find-my-rep/#legislators/house/california/26753-henry-waxman">Henry Waxman</a>. Combine that with the <a href="http://www.scpr.org/blogs/politics/2012/11/19/11137/californias-bumper-crop-freshman-lawmakers-learn-r/">election of 14 brand new representatives in the 2012 election</a> and suddenly about 38 percent of the state&#39;s delegation will have less than three years of experience on the Hill by the time they take office.</p><p>One newcomer wil lbe one of the more than <a href="http://www.scpr.org/blogs/politics/2014/03/13/16079/crowded-field-to-replace-democrat-henry-waxman-in/" target="blank">22 candidates</a> that have filed to run for Waxman&#39;s 33rd District Seat.</p>  <p>California allows anyone from any party to vote for any candidate in the June 3rd primary, with the top two finishers facing off in November.</p>'
   keywords: 'California, Congressional delegation, 2014 mid-term elections'
   project_directory: 'http://projects.scpr.org/static/databases/2014-congressional-candidates'
   twitter_share_text: 'See who has declared as a candidate for Southern California Congressional seats'
@@ -14,14 +14,14 @@ table:
   # public facing content
   kicker: Politics
   title: Candidates for Southern California congressional seats
-  byline: Kitty Felde and Chris Keller
-  credits: '<a href="http://www.scpr.org/about/people/staff/kitty-felde">Kitty Felde</a> &amp; <a href="http://www.scpr.org/about/people/staff/chris-keller">Chris Keller</a>'
+  byline: Chris Keller and Kitty Felde
+  credits: '<a href="http://www.scpr.org/about/people/staff/chris-keller">Chris Keller</a> &amp; <a href="http://www.scpr.org/about/people/staff/kitty-felde">Kitty Felde</a>'
   content_explainer: '<p></p>'
   publication_message: 'Published'
-  publication_date: 2014-2-24
-  publication_time: '10:00:00'
-  sources: KPCC staff reports
-  read_more_link: ''
+  publication_date: 2014-3-13
+  publication_time: '17:00:00'
+  sources: KPCC staff reports; election offices in Los Angeles Orange Riverside and San Bernardino counties.
+  read_more_link: 'http://www.scpr.org/blogs/politics/2014/03/13/16079/crowded-field-to-replace-democrat-henry-waxman-in/'
   footer: '<p></p>'
 
   # table configuration
@@ -51,7 +51,7 @@ table:
         method: title
       About:
         method: title
-    per_page: 60
+    per_page: 25
   is_published: true
   show_download_links: false
   show_in_feeds: true
