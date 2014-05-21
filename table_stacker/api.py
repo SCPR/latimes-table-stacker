@@ -7,7 +7,6 @@ from django.utils import simplejson
 from django.http import HttpResponse
 from bakery.views import BuildableDetailView, BuildableListView
 
-
 class TableBaseAPIView(BuildableDetailView):
     """
     The basics necessary to publish a table outside of HTML.
