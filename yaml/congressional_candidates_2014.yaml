@@ -33,11 +33,11 @@ table:
       - Status
       - About
     style:
-      District: 'width: 5%;'
-      Name: 'width: 25%;'
-      Party: 'width: 5%;'
-      Status: 'width: 25%;'
-      About: 'width: 40%;'
+      District: "width: 3%; text-align: left;"
+      Name: "width: 25%; text-align: left;"
+      Party: "width: 12%; text-align: left;"
+      Status: "width: 20%; text-align: left;"
+      About: "width: 40%; text-align: left;"
     sorted_by:
       - District: ascending
     formatting:
