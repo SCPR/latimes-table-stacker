@@ -1,0 +1,49 @@
+table:
+    # required setup
+    file: lausd-budget-2015.csv
+    slug: lausd-budget-2015
+
+    # metadata and configuration
+    description: "Text goes here..."
+    keywords: "Text goes here..."
+    project_directory: "http://projects.scpr.org/static/databases/lausd-budget-2015"
+    twitter_share_text: "Text goes here..."
+    allow_others_embed: true
+    open_about_this_onload: true
+
+    # public facing content
+    kicker: Database
+    title: Headline here
+    byline: Chris Keller
+    credits: "<a href='http://www.scpr.org/about/people/staff/annie-gilbertson'>Annie Gilbertson</a> &amp; <a href='http://www.scpr.org/about/people/staff/chris-keller'>Chris Keller</a>"
+    content_explainer: "This explains where the data comes from"
+    publication_message: "Published"
+    publication_date: 2014-3-31
+    publication_time: "12:00:00"
+    sources: "This is the source of the data"
+    read_more_link: ""
+    footer: "<p></p>"
+
+    # table configuration
+    column_options:
+        columns:
+          - school_name
+          - major_group
+          - grand_total
+        style:
+          school_name: "width: 45%;"
+          major_group: "width: 45%;"
+          grand_total: "width: 10%;"
+        sorted_by:
+          - school_name: ascending
+        formatting:
+          school_name:
+            method: title
+          major_group:
+            method: title
+          grand_total:
+            method: dollars
+        per_page: 50
+    is_published: true
+    show_download_links: false
+    show_in_feeds: true

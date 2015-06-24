@@ -9,7 +9,7 @@ table:
     project_directory: 'http://projects.scpr.org/static/databases/school-district-dropout-rates/'
     twitter_share_text: 'A slightly smaller percentage of Calif students dropped out of high school last year than during the 2010-2011'
     allow_others_embed: true
-    open_about_this_onload: false
+    open_about_this_onload: true
 
     # public facing content
     kicker: Database
@@ -28,60 +28,56 @@ table:
     column_options:
         columns:
             - District
-            - County
-            - Grade 9_12 Enrollment
-            - Enrollment Change from 2010_2011
-            - Grade 9_12
-            - Change from 2010_2011
+            - Grade 9-12 Enrollment
+            - Grade 9-12
+            - Change from 2010-2011
             - Hispanic
-            - Hispanic Change from 2010_2011
+            - Hispanic Change from 2010-2011
             - Asian
-            - Asian Change from 2010_2011
+            - Asian Change from 2010-2011
             - African American
-            - African American Change from 2010_2011
+            - African American Change from 2010-2011
             - White
-            - White Change from 2010_2011
+            - White Change from 2010-2011
         style:
-            District: 'width: 35%;'
-            County: 'width: 20%;'
-            Grade 9_12 Enrollment: 'width: 5%;'
-            Enrollment Change from 2010_2011: 'width: 5%;'
-            Grade 9_12: 'width: 5%;'
-            Change from 2010_2011: 'width: 5%;'
+            District: 'width: 30%;'
+            Grade 9-12 Enrollment: 'width: 5%;'
+            Grade 9-12: 'width: 5%;'
+            Change from 2010-2011: 'width: 10%;'
             Hispanic: 'width: 5%;'
-            Hispanic Change from 2010_2011: 'width: 5%;'
+            Hispanic Change from 2010-2011: 'width: 10%;'
             Asian: 'width: 5%;'
-            Asian Change from 2010_2011: 'width: 5%;'
+            Asian Change from 2010-2011: 'width: 5%;'
             African American: 'width: 5%;'
-            African American Change from 2010_2011: 'width: 5%;'
+            African American Change from 2010-2011: 'width: 10%;'
             White: 'width: 5%;'
-            White Change from 2010_2011: 'width: 5%;'
+            White Change from 2010-2011: 'width: 5%;'
         sorted_by:
             - District: ascending
         formatting:
-            Grade 9_12 Enrollment:
+            District:
+                method: title
+            Grade 9-12 Enrollment:
                 method: intcomma
-            Enrollment Change from 2010_2011:
-                method: percent_change
-            Grade 9_12:
+            Grade 9-12:
                 method: intcomma
-            Change from 2010_2011:
+            Change from 2010-2011:
                 method: percent_change
             Hispanic:
                 method: intcomma
-            Hispanic Change from 2010_2011:
+            Hispanic Change from 2010-2011:
                 method: percent_change
             Asian:
                 method: intcomma
-            Asian Change from 2010_2011:
+            Asian Change from 2010-2011:
                 method: percent_change
             African American:
                 method: intcomma
-            African American Change from 2010_2011:
+            African American Change from 2010-2011:
                 method: percent_change
             White:
                 method: intcomma
-            White Change from 2010_2011:
+            White Change from 2010-2011:
                 method: percent_change
         per_page: 25
     is_published: true

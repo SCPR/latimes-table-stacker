@@ -1,0 +1,59 @@
+table:
+    # required setup
+    file: state_regulated_passenger_carriers.csv
+    slug: state_regulated_passenger_carriers
+
+    # metadata and configuration
+    description: "The California Public Utilities Commission regulates passenger carrier companies operating with the state, such as limousine companies, airport shuttles, charter and scheduled bus operators. This is a searchable, sortable table of the more than 8,000 companies, with links to more details on file with the commission."
+    keywords: "california, passenger carrier companies, limousine companies, airport shuttles, charter, scheduled bus operators"
+    project_directory: 'http://projects.scpr.org/databases/state-regulated-passenger-carriers/'
+    twitter_share_text: 'Search this database of the more than 8,000 passenger carrier companies regulated by the California Public Utilities Commission'
+    allow_others_embed: true
+    open_about_this_onload: true
+
+    # public facing content
+    kicker: Database
+    title: Search passenger carriers regulated by California
+    byline: Chris Keller
+    credits: "<a href='http://www.scpr.org/about/people/staff/chris-keller'>Chris Keller</a>"
+    content_explainer: "The <a href='http://www.cpuc.ca.gov/PUC/transportation/'>California Public Utilities Commission</a> regulates passenger carrier companies operating with the state, such as limousine companies, airport shuttles, charter and scheduled bus operators. The commission lists more than 8,000 companies that qualify as a passenger carrier, and classifies them as having an 'active', 'pending' or 'suspended' status. Below is a searchable, sortable table of these companies with links to more details on file with the commission."
+    publication_message: "Updated"
+    publication_date: 2013-5-7
+    publication_time: "12:00:00"
+    sources: "<a href='http://www.cpuc.ca.gov/PUC/transportation/'>California Public Utilities Commission</a>"
+    read_more_link: ''
+    footer: '<p></p>'
+
+    # table configuration
+    column_options:
+        columns:
+          - carrier id
+          - carrier name
+          - carrier location
+          - county
+          - carrier profile
+        style:
+          carrier id: 'text-align: center; width: 15%;'
+          carrier name: 'text-align: center; width: 25%;'
+          carrier location: 'text-align: center; width: 25%;'
+          county: 'text-align: center; width: 25%;'
+          carrier profile: 'text-align: center; width: 10%;'
+        sorted_by:
+          - carrier name: ascending
+        formatting:
+          carrier id:
+            method: title
+          carrier name:
+            method: title
+          carrier location:
+            method: title
+          county:
+            method: title
+          Details:
+            method: link
+            arguments:
+              - carrier profile
+        per_page: 15
+    is_published: true
+    show_download_links: false
+    show_in_feeds: true

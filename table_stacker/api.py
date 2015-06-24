@@ -38,7 +38,7 @@ class TableDetailCSVView(TableBaseAPIView):
 
     def render_to_response(self, context):
         data = self.get_csv_data(context['object']).read()
-        response = HttpResponse(unicode(data), mimetype='text/csv')
+        response = HttpResponse(unicode(data.decode("utf8")), mimetype='text/csv')
         response['Content-Disposition'] = 'attachment; filename=%s.csv' % context['object'].slug
         return response
 

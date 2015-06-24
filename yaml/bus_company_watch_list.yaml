@@ -8,7 +8,7 @@ table:
     project_directory: 'http://projects.scpr.org/static/databases/california-motor-carriers/'
     twitter_share_text: 'Search details of California commercial bus companies'
     allow_others_embed: true
-    open_about_this_onload: false
+    open_about_this_onload: true
 
     # public facing content
     kicker: Database

@@ -1,0 +1,73 @@
+table:
+    # required setup
+    file: state_vaccine_kindergarten_2014_2015.csv
+    slug: state_vaccine_kindergarten_2014_2015
+
+    # metadata and configuration
+    description: "A parent-led movement to stop vaccinations is showing up in schools. While public schools require children to have up-to-date vaccines before a child can enroll, parents have the option of waiving the shots if they conflict with their personal beliefs. Children with medical conditions sometimes get waivers as well. In some schools in Southern California, kids with Personal Belief Exemptions make up a majority of incoming kindergartners – and that worries public health officials. This user-friendly database shows 2014-15 vaccination exemption rates for incoming kindergartners at schools in Los Angeles, Orange, Riverside, San Bernardino and Ventura counties, based on data from the California Department of Public Health."
+    keywords: 'California, California Department of Public Health, vaccinations'
+    project_directory: 'http://projects.scpr.org/static/databases/2014-2015-kindergarten-immunizations'
+    twitter_share_text: 'This user-friendly database shows 2014-15 vaccination exemption rates at schools in Los Angeles, Orange, Riverside, San Bernardino and Ventura counties based on data from the California Department of Public Health'
+    allow_others_embed: true
+    open_about_this_onload: true
+
+    # public facing content
+    kicker: Database
+    title: Search 2014-2015 kindergarten immunization levels in Southern California
+    byline: Chris Keller
+    credits: "<a href='http://www.scpr.org/about/people/staff/chris-keller'>Chris Keller</a>"
+    content_explainer: "Based on data from the California Department of Public Health, this database shows the number of new kindergarten students enrolled in schools in Los Angeles, Orange, Riverside, San Bernardino and Ventura counties for the 2014-2015 academic year, the number and percent of students who are up to date with their vaccinations, the number of students who received a conditional exemption, a permanent medical exemption (PME) and the number of students who have a signed personal belief exemption (PBE) on record with the school. It also shows the number of personal belief exemptions that are for religious reasons. If a child has a medical condition that rules out one or more vaccines a parent can file a permanent medical exemption. It must be signed by a physician. If vaccination is against personal beliefs, a parent can file a personal belief exemption. A parent must first discuss the risks and benefits of immunization with a health care professional. It must be signed by a parent and a health care professional."
+    publication_message: "Updated"
+    publication_date: 2015-2-5
+    publication_time: "12:00:00"
+    sources: "<a href='http://www.cdph.ca.gov/programs/immunize/Pages/ImmunizationLevels.aspx'>California Department of Public Health</a>"
+    read_more_link: ''
+    footer: '<p></p>'
+
+    # table configuration
+    column_options:
+        columns:
+          - School
+          - Enrollment
+          - Up to date
+          - Up to date %
+          - Conditional
+          - PME
+          - PBE
+          - PBE (Religious)
+          - City
+        style:
+          School: 'text-align: left; width: 20%;'
+          Enrollment: 'text-align: center; width: 10%;'
+          Up to date: 'text-align: center; width: 10%;'
+          Up to date %: 'text-align: center; width: 12%;'
+          Conditional: 'text-align: center; width: 10%;'
+          PME: 'text-align: center; width: 5%;'
+          PBE: 'text-align: center; width: 5%;'
+          PBE (Religious): 'text-align: center; width: 8%;'
+          City: 'text-align: center; width: 20%;'
+        sorted_by:
+          - Enrollment: descending
+        formatting:
+          School:
+            method: title
+          Enrollment:
+            method: intcomma
+          Up to date:
+            method: intcomma
+          Up to date %:
+            method: intcomma
+          Conditional:
+            method: intcomma
+          PME:
+            method: intcomma
+          PBE:
+            method: intcomma
+          PBE (Religious):
+            method: intcomma
+          City:
+            method: title
+        per_page: 10
+    is_published: true
+    show_download_links: false
+    show_in_feeds: true

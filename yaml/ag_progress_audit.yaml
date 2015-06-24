@@ -1,0 +1,73 @@
+table:
+    # required setup
+    file: ag_progress_audit.csv
+    slug: ag_progress_audit
+
+    # metadata and configuration
+    description: 'The Los Angeles Unified School District requires students, starting with the Class of 2017, to successfully complete a slate of college preparation courses before they graduate. The course load called "A-G" may prevent as many as 75 percent of current sophomores from graduating unless the policy is changed.'
+    keywords: 'California, California Department of Public Health, vaccinations'
+    project_directory: 'http://projects.scpr.org/static/databases/2014-2015-kindergarten-immunizations'
+    twitter_share_text: 'The Los Angeles Unified School District requires students, starting with the Class of 2017, to successfully complete a slate of college preparation courses before they graduate. The course load called "A-G" may prevent half of students from graduating unless the policy is changed.'
+    allow_others_embed: true
+    open_about_this_onload: true
+
+    # public facing content
+    kicker: Education
+    title: How your LAUSD school fares in college prep graduation requirements
+    byline: Chris Keller
+    credits: "<a href='http://www.scpr.org/about/people/staff/chris-keller'>Chris Keller</a>"
+    content_explainer: ""
+    publication_message: "Published"
+    publication_date: 2015-5-7
+    publication_time: "12:00:00"
+    sources: "Los Angeles Unified School District"
+    read_more_link: ''
+    footer: '<p></p>'
+
+    # table configuration
+    column_options:
+        columns:
+          - school name
+          - board district
+          - grades offered
+          - graduating class
+          - total students
+          - meeting college requirements
+          - missing one required course
+          - missing two required courses
+          - missing three or more required courses
+        style:
+          school name: 'text-align: left; width: 20%;'
+          board district: 'text-align: center; width: 5%;'
+          grades offered: 'text-align: center; width: 5%;'
+          graduating class: 'text-align: center; width: 5%;'
+          total students: 'text-align: center; width: 10%;'
+          meeting college requirements: 'text-align: center; width: 10%;'
+          missing one required course: 'text-align: center; width: 10%;'
+          missing two required courses: 'text-align: center; width: 10%;'
+          missing three or more required courses: 'text-align: center; width: 10%;'
+        sorted_by:
+          - total students: descending
+        formatting:
+          school name:
+            method: title
+          board district:
+            method: title
+          grades offered:
+            method: title
+          graduating class:
+            method: title
+          total students:
+            method: intcomma
+          meeting college requirements:
+            method: intcomma
+          missing one required course:
+            method: intcomma
+          missing two required courses:
+            method: intcomma
+          missing three or more required courses:
+            method: intcomma
+        per_page: 10
+    is_published: true
+    show_download_links: false
+    show_in_feeds: true

@@ -1,4 +1,4 @@
-"school_code","county","public_private","school_district","city","school_name","enrollment","up_to_date_number","up_to_date_percent","conditional_number","conditional_percent","pme_number","pme_percent","pbe_number","pbe_percent","dtp_number","dtp_percent","polio_number","polio_percent","mmr_number","mmr_percent","hepb_number","hepb_percent","vari_number","vari_percent","reported"
+"school code","county","public private","school district","city","school","enrollment","up to date","up to date %","conditional","conditional percent","pme","pme percent","pbe","pbe percent","dtp number","dtp percent","polio number","polio percent","mmr number","mmr percent","hepb number","hepb percent","vari number","vari percent","reported"
 6145361,"LOS ANGELES","PRIVATE",,"SOUTH GATE","100% GRADUATION RATE"," ",,,,,,,,,,,,,,,,,,,"N"
 6131486,"LOS ANGELES","PRIVATE",,"INGLEWOOD","A BRIGHT BEGINNING"," ",,,,,,,,,,,,,,,,,,,"N"
 6140529,"LOS ANGELES","PRIVATE",,"INGLEWOOD","A BRIGHT BEGINNING CDC"," ",,,,,,,,,,,,,,,,,,,"N"

@@ -65,130 +65,206 @@
 {% endblock %}
 
 {% block content %}
-    <div id="table-container" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div id="table-container">
         <div id="table_fu">
-
-            {% if object.legend %}
-                <div id="legend">{{ object.legend|safe }}</div>
-            {% endif %}
-
-            <!-- begin display ribbon -->
-            <div id="ribbon">
+            <div id="controls" class="row">
+                <!--
+                {% if object.legend %}
+                    <div id="legend">{{ object.legend|safe }}</div>
+                {% endif %}
                 <div id="download">
                     <div id="pubdate"></div>
-
                     {% if object.show_download_links %}
                         <strong>Download the data: </strong>
                         <a href="{{ object.get_csv_url }}">CSV</a> |
                         <a href="{{ object.get_xls_url }}">XLS</a> |
                         <a target="_blank" href="{{ object.get_json_url }}">JSON</a>
                     {% endif %}
-
                 </div>
-                <div id="controls">
-                    <div id="filter" >Search (by any term): <input type="text"></div>
-
-                    <!-- <div id="pager" class="pager"> -->
-                    <div id="pager">
-                        <form class="form-inline" role="form" {% ifequal table.total_pages 1 %}style="display:none !important;"{% endifequal %}>
-                            <img src="http://projects.scpr.org/static/static-files/images/tablestacker-tables/first.png" class="first">
-                            <img src="http://projects.scpr.org/static/static-files/images/tablestacker-tables/prev.png" class="prev">
-                            <span class="pagedisplay"/>1/{{ table.total_pages }}</span>
-                            <img src="http://projects.scpr.org/static/static-files/images/tablestacker-tables/next.png" class="next">
-                            <img src="http://projects.scpr.org/static/static-files/images/tablestacker-tables/last.png" class="last">
+                -->
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" id="filter"{% if not object.show_search_field %}style="display:none !important;"{% endif %}>
+                    <form class="form-inline" >
+                        <input type="text" class="form-control" placeholder="Search by any term...">
+                    </form>
+                </div>
+                <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8" id="pager" class="pager">
+                    <form class="form-inline" {% ifequal table.total_pages 1 %}style="display:none !important;"{% endifequal %}>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                            <p class="text-center"><span class="glyphicon glyphicon-fast-backward first"></span>
+                            <span class="glyphicon glyphicon-backward prev"></span>
+                            <span class="pagedisplay"/>1/10</span>
+                            <span class="glyphicon glyphicon-forward next"></span>
+                            <span class="glyphicon glyphicon-fast-forward last"></span></p>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <select class="pagesize form-control">
-                            {% for page_size in table.page_size_list %}
-                            <option {% if forloop.first %}selected="selected"{% endif %} value="{{ page_size }}">{{ page_size }}</option>
-                            {% endfor %}
-                            </select> per page
-                        </form>
-                    </div>
+                                {% for page_size in table.page_size_list %}
+                                    <option {% if forloop.first %}selected="selected"{% endif %} value="{{ page_size }}">{{ page_size }} per page</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <!-- end display ribbon -->
-
             <div class="clear"></div>
-
-            <table id="data" class="tabular table tablesaw-stack" data-mode="stack">
-                <thead>
-                    <tr>
-                        {% for header in table.headers %}
-                            <th style="cursor: pointer; {% if header.style %}{% if header.sortable %}cursor: pointer;{% else %}cursor:default; background:none;{% endif %} {{ header.style }}{% endif %}">
-                                {{ header }}
-                            </th>
-                        {% endfor %}
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for row in table.rows %}
-                        <tr>
-                            {% for column in row.data %}
-                                <td class="collapsible" style="{{ column.style }}">{{ column|safe }}</td>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <table id="data" class="kpcc-table tabular table">
+                        <thead>
+                            <tr>
+                            {% for header in table.headers %}
+                                <th style="cursor: pointer; {% if header.style %}{% if header.sortable %}cursor: pointer;{% else %}cursor:default; background:none;{% endif %} {{ header.style }}{% endif %}">{{ header }}</th>
                             {% endfor %}
-                        </tr>
-                    {% endfor %}
-                </tbody>
-                <tfoot>
-                </tfoot>
-            </table>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in table.rows %}
+                                <tr>
+                                    {% for header in table.headers %}
+                                        {% for column in row.data %}
+                                            {% if forloop.counter == forloop.parentloop.counter %}
+                                                <td style="{{ column.style }}"><mark>{{ header }}</mark>{{ column|safe }}</td>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endfor %}
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot></tfoot>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
-<!-- end table fu -->
+</div>
 
-<script type="text/javascript">
-    var sortOrder = {{ table.sorted_by }};
-    var perPage = {{ table.per_page }};
-    var embed_url_root = '{{ object.project_directory }}';
+    <script type="text/javascript">
 
-    $(document).ready(function(){
-        var fu = $('#table_fu');
-        var table = window.table = $('#data', fu)
-          .tablesorter({
-            widgets: ['columnHighlight'],
-            sortList: sortOrder{% if table.sorter_config %},
-            headers: {% for key, value in table.sorter_config.items %}{
-                        {{ key }}: {
-                            sorter: {% if value %}'{{ value }}'{% else %}false{% endif %}
-                        }{% if not forloop.last %},{% endif %}
-                    }{% endfor %}{% endif %}
-           })
-          .tablesorterPager({ container: $("#pager", fu), size: perPage, positionFixed: false })
-          .tablesorterMultiPageFilter({ filterSelector: $("#filter input", fu) });
-        var urlSortColumn = getParameterByName("sortColumn");
-        var urlSortOrder = getParameterByName("sortOrder");
-        if (urlSortColumn && urlSortOrder) {
-            urlSortColumn  = parseInt(urlSortColumn);
-            urlSortOrder  = parseInt(urlSortOrder);
-            newSort = [[urlSortColumn, urlSortOrder]];
-            $("table").trigger("sorton", [newSort]);
+        var sortOrder = {{ table.sorted_by }};
+
+        var perPage = {{ table.per_page }};
+
+        var embed_url_root = '{{ object.project_directory }}';
+
+        $(document).ready(function(){
+            $.tablesorter.defaults.textExtraction = "complex";
+            var extractResponsiveMark = function(node){
+                if (node.childNodes[0].nextSibling === null){
+                    return " ";
+                } else {
+                    var cellContent = node.childNodes[0].nextSibling.textContent;
+                    return cellContent
+                };
+            };
+
+            fn.createResponsiveTable();
+
+            fn.toggleDisplayIcon();
+
+            var fu = $('#table_fu');
+            var table = window.table = $('#data', fu)
+              .tablesorter({
+                textExtraction: extractResponsiveMark,
+                widgets: ['columnHighlight'],
+                sortList: sortOrder{% if table.sorter_config %},
+                headers: {% for key, value in table.sorter_config.items %}{
+                            {{ key }}: {
+                                sorter: {% if value %}'{{ value }}'{% else %}false{% endif %}
+                            }{% if not forloop.last %},{% endif %}
+                        }{% endfor %}{% endif %}
+               })
+              .tablesorterPager({ container: $("#pager", fu), size: perPage, positionFixed: false })
+              .tablesorterMultiPageFilter({ filterSelector: $("#filter input", fu) });
+            var urlSortColumn = getParameterByName("sortColumn");
+            var urlSortOrder = getParameterByName("sortOrder");
+            if (urlSortColumn && urlSortOrder) {
+                urlSortColumn  = parseInt(urlSortColumn);
+                urlSortOrder  = parseInt(urlSortOrder);
+                newSort = [[urlSortColumn, urlSortOrder]];
+                $("table").trigger("sorton", [newSort]);
+            };
+
+        });
+
+        $(window).resize(function(){
+            fn.createResponsiveTable();
+        });
+
+        var fn = {
+            createResponsiveTable: function(){
+                var windowWidth = $(window).width();
+                if (windowWidth <= 595){
+                    $(".kpcc-table").each(function(){
+                        $("tbody tr").each(function(){
+                            $(this).find("td").each(function(){
+                                $(this).css("width", "100%");
+                            });
+                        });
+                    });
+                } else {
+                    $(".kpcc-table").each(function(){
+                        var numberOfCells = $("tbody tr:nth-child(2) td").length;
+                        var widthResize = 100 / numberOfCells
+                        $("tbody tr").each(function(){
+                            $(this).find("td").each(function(){
+                                $(this).css("width", widthResize + "%");
+                            });
+                        });
+                    });
+                }
+            },
+
+            renderEmbedBox: function(){
+                var embed_url = embed_url_root + '/iframe.html';
+                jAlert('<h4>Embed this on your site or blog</h4>' + '<span>Copy this code and paste to source of your page: <br /><br /> &lt;iframe src=\"'+ embed_url +'\" width=\"100%\" height=\"850px\" style=\"margin: 0 auto;\" frameborder=\"no\"&gt;&lt;/iframe>', 'Share or Embed');
+            },
+
+            toggleDisplayIcon: function(){
+
+                {% if object.open_about_this_onload %}
+                    $(".text").collapse("show");
+                    $("span.text")
+                        .removeClass("glyphicon-chevron-down")
+                        .addClass("glyphicon-chevron-up")
+                        .css("height", "auto");
+                {% endif %}
+
+                {% if object.allow_others_embed %}
+                    $("li.projects-embed").addClass("hidden");
+                {% endif %}
+
+                $(".text").on("shown.bs.collapse", function(){
+                    $("span.text")
+                        .removeClass("glyphicon-chevron-down")
+                        .addClass("glyphicon-chevron-up")
+                        .css("height", "auto");
+                });
+
+                $(".text").on("hidden.bs.collapse", function(){
+                    $("span.text")
+                        .removeClass("glyphicon-chevron-up")
+                        .addClass("glyphicon-chevron-down")
+                        .css("height", "auto");
+                });
+
+                $(".about").on("shown.bs.collapse", function(){
+                    $("span.about")
+                        .removeClass("glyphicon-chevron-down")
+                        .addClass("glyphicon-chevron-up")
+                        .css("height", "auto");
+                });
+
+                $(".about").on("hidden.bs.collapse", function(){
+                    $("span.about")
+                        .removeClass("glyphicon-chevron-up")
+                        .addClass("glyphicon-chevron-down")
+                        .css("height", "auto");
+                });
+            }
         };
+    </script>
 
-        renderEmbedBox = function(){
-            jAlert('<h4>Embed this on your site or blog</h4>' + '<span>Copy this code and paste to source of your page. You may need to adjust the height parameter. <br /><br /> &lt;iframe src=\"'+ embed_url_root +'\" width=\"100%\" height=\"850px\" style=\"margin: 0 auto;\" frameborder=\"no\"&gt;&lt;/iframe>', 'Share or Embed');
-        };
-
-        {% if object.open_about_this_onload %}
-            $('.text').collapse('show');
-        {% endif %}
-
-        {% if object.allow_others_embed %}
-            $('li.projects-embed').addClass('hidden');
-        {% endif %}
-
-        $('.text').on('shown.bs.collapse', function(){
-            $('span.text').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
-        });
-        $('.text').on('hidden.bs.collapse', function(){
-            $('span.text').addClass('glyphicon-chevron-down').removeClass('glyphicon-chevron-up');
-        });
-        $('.about').on('shown.bs.collapse', function(){
-            $('span.about').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
-        });
-        $('.about').on('hidden.bs.collapse', function(){
-            $('span.about').addClass('glyphicon-chevron-down').removeClass('glyphicon-chevron-up');
-        });
-    });
-</script>
 {% endblock %}
 
 {% block kpcc-footer %}{% endblock %}

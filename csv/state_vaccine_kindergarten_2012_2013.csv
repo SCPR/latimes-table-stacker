@@ -1,4 +1,4 @@
-school_code,county,public_private,school_district,city,school_name,enrollment,up_to_date_number,up_to_date_percent,conditional_number,conditional_percent,pme_number,pme_percent,pbe_number,pbe_percent,dtp_number,dtp_percent,polio_number,polio_percent,mmr_number,mmr_percent,hepb_number,hepb_percent,vari_number,vari_percent,reported
+school code,county,public private,school district,city,school,enrollment,up to date,up to date %,conditional,conditional percent,pme,pme percent,pbe,pbe percent,dtp number,dtp percent,polio number,polio percent,mmr number,mmr percent,hepb number,hepb percent,vari number,vari percent,reported
 6023808,LOS ANGELES,PUBLIC,WISEBURN ELEMENTARY,HAWTHORNE,ANZA (JUAN DE) ELEM.,104,94,90,7,7,0,0,3,3,94,90,94,90,97,93,101,97,100,96,Y
 6023824,LOS ANGELES,PUBLIC,WISEBURN ELEMENTARY,HAWTHORNE,CABRILLO (JUAN) ELEM.,189,177,94,7,4,0,0,5,3,180,95,181,96,178,94,182,96,183,97,Y
 119636,LOS ANGELES,PUBLIC,WISEBURN ELEMENTARY,HAWTHORNE,DA VINCI DESIGN,34,20,59,4,12,0,0,10,29,23,68,22,65,22,65,24,71,24,71,Y
