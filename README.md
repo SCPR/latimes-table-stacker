@@ -54,6 +54,20 @@ Quickstart To Get Up And Running
 
 If everything clicked, you should see your demo site up and running with all the example tables at http://localhost:8000.
 
+The [databases](http://projects.scpr.org/databases/) we've created with this tool include:
+
+* http://projects.scpr.org/databases/2012-2013-kindergarten-immunizations/
+* http://projects.scpr.org/databases/2013-2014-kindergarten-immunizations/
+* http://projects.scpr.org/databases/2013-2014-lausd-graduation-rates/
+* http://projects.scpr.org/databases/2013-api-scores-by-school/
+* http://projects.scpr.org/databases/2014-2015-kindergarten-immunizations/
+* http://projects.scpr.org/databases/2014-congressional-candidates/
+* http://projects.scpr.org/databases/2015-2016-kindergarten-immunizations/
+* http://projects.scpr.org/databases/2015-lausd-ag-college-prep/
+* http://projects.scpr.org/databases/2015-lausd-budget/
+* http://projects.scpr.org/databases/california-motor-carriers/
+* http://projects.scpr.org/databases/school-district-dropout-rates/
+* http://projects.scpr.org/databases/state-regulated-passenger-carriers/
 
 Now you're ready to make your own using the well-written [table-stacker documentation](http://datadesk.github.com/latimes-table-stacker)
 
